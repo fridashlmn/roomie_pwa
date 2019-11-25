@@ -1,0 +1,37 @@
+[
+	{
+		"id": "1",
+		"avatar": "./Avatar_Example_1.jpg",
+		"firstName": "Malina",
+		"lastName": "Stark",
+		"durationStart": "01.12.2016",
+		"durationEnd": "unlimited",
+		"rent": "500 €",
+		"deposit": "750 €",
+		"belongings": [
+			"living room: green couch",
+			"kitchen: fridge",
+			"bathroom: big mirror"
+		]
+	},
+	{
+		"id": "2",
+		"firstName": "Ruben",
+		"lastName": "Koch",
+		"durationStart": "01.03.2017",
+		"durationEnd": "unlimited",
+		"rent": "450 €",
+		"deposit": "750 €",
+		"belongings": ["kitchen table", "TV"]
+	},
+	{
+		"id": "3",
+		"firstName": "Katharina",
+		"lastName": "Farber",
+		"durationStart": "01.05.2019",
+		"durationEnd": "01.02.2020",
+		"rent": "450 €",
+		"deposit": "750 €",
+		"belongings": [""]
+	}
+]
