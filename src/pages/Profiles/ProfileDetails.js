@@ -3,6 +3,35 @@ import styled from 'styled-components/macro'
 import profileData from './profiles.json'
 import Belongings from './Belongings'
 
+export default function ProfileDetails() {
+	const [profile, setProfile] = useState(profileData[0])
+	return (
+		<ProfileContainer>
+			<img
+				className="profile__avatar"
+				src={require(`${profile.avatar}`)}
+				alt=""
+			/>
+			<ProfileName>
+				{profile.firstName} {profile.lastName}
+			</ProfileName>
+			<HorizontalLine />
+			<ProfileContentTitle>duration</ProfileContentTitle>
+			<ProfileContent>
+				{profile.durationStart} - {profile.durationEnd}
+			</ProfileContent>
+			<ProfileContentTitle>rent</ProfileContentTitle>
+			<ProfileContent>{profile.rent}</ProfileContent>
+			<ProfileContentTitle>deposit</ProfileContentTitle>
+			<ProfileContent>{profile.deposit}</ProfileContent>
+			<ProfileBelongingsTitle>belongings</ProfileBelongingsTitle>
+			{profile.belongings.map(item => (
+				<Belongings key={item} text={item} />
+			))}
+		</ProfileContainer>
+	)
+}
+
 const ProfileContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -20,7 +49,7 @@ const ProfileName = styled.p`
 	align-self: center;
 	padding: 20px;
 	font-size: 2rem;
-	font-weight: 800;
+	font-weight: bold;
 `
 
 const ProfileContentTitle = styled.p`
@@ -51,32 +80,3 @@ const HorizontalLine = styled.hr`
 	border: 0;
 	height: 1px;
 `
-
-export default function ProfileDetails() {
-	const [profile, setProfile] = useState(profileData[0])
-	return (
-		<ProfileContainer>
-			<img
-				className="profile__avatar"
-				src={require(`${profile.avatar}`)}
-				alt=""
-			/>
-			<ProfileName>
-				{profile.firstName} {profile.lastName}
-			</ProfileName>
-			<HorizontalLine />
-			<ProfileContentTitle>duration</ProfileContentTitle>
-			<ProfileContent>
-				{profile.durationStart} - {profile.durationEnd}
-			</ProfileContent>
-			<ProfileContentTitle>rent</ProfileContentTitle>
-			<ProfileContent>{profile.rent}</ProfileContent>
-			<ProfileContentTitle>deposit</ProfileContentTitle>
-			<ProfileContent>{profile.deposit}</ProfileContent>
-			<ProfileBelongingsTitle>belongings</ProfileBelongingsTitle>
-			{profile.belongings.map(item => (
-				<Belongings key={item} text={item} />
-			))}
-		</ProfileContainer>
-	)
-}
