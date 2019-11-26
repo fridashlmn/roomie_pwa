@@ -5,14 +5,14 @@ import Navbar from './components/Navbar'
 import ProfileDetails from './pages/Profiles/ProfileDetails'
 
 export default function App() {
-	const [isOpen, setIsOpen] = useState(false)
+	const [navIsOpen, setNavIsOpen] = useState(false)
 
 	function toggleNavOpen() {
-		setIsOpen(!isOpen)
+		setNavIsOpen(!navIsOpen)
 	}
 	return (
 		<Router>
-			<Navbar toggleNavOpen={toggleNavOpen} isOpen={isOpen} />
+			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
 			<Switch>
 				<Route exact path="/">

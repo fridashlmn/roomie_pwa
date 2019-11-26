@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import CloseIcon from '@material-ui/icons/Close'
 import '../styles/styles.scss'
 
-export default function Navbar({ isOpen, toggleNavOpen }) {
-	const classes = isOpen ? 'nav__bar nav__bar--open ' : 'nav__bar'
+export default function Navbar({ navIsOpen, toggleNavOpen }) {
+	const classes = navIsOpen ? 'nav__bar nav__bar--open ' : 'nav__bar'
 	return (
 		<nav className={classes}>
 			<div className="closeicon" onClick={toggleNavOpen}>
