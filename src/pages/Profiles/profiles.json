@@ -1,7 +1,7 @@
 [
 	{
 		"id": "1",
-		"avatar": "./Avatar_Example_1.jpg",
+		"avatar": "./img/Avatar_Example_1.jpg",
 		"firstName": "Malina",
 		"lastName": "Stark",
 		"durationStart": "01.12.2016",
@@ -16,6 +16,7 @@
 	},
 	{
 		"id": "2",
+		"avatar": "./img/Avatar_Example_2.jpg",
 		"firstName": "Ruben",
 		"lastName": "Koch",
 		"durationStart": "01.03.2017",
@@ -26,6 +27,7 @@
 	},
 	{
 		"id": "3",
+		"avatar": "./img/Avatar_Example_3.jpg",
 		"firstName": "Katharina",
 		"lastName": "Farber",
 		"durationStart": "01.05.2019",

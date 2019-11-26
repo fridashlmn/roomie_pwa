@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 import '../styles/styles.scss'
 
 export default function Navbar({ navIsOpen, toggleNavOpen }) {
 	const classes = navIsOpen ? 'nav__bar nav__bar--open ' : 'nav__bar'
 	return (
 		<nav className={classes}>
-			<div className="closeicon" onClick={toggleNavOpen}>
-				x
-			</div>
+			<CloseIcon onClick={toggleNavOpen}>x</CloseIcon>
 			<Link className="nav__item" to="/" onClick={toggleNavOpen}>
 				DASHBOARD
 			</Link>
-			<Link className="nav__item" to="/profile" onClick={toggleNavOpen}>
+			<Link className="nav__item" to="/flatmates" onClick={toggleNavOpen}>
 				FLATMATES
 			</Link>
 			<Link className="nav__item" to="/" onClick={toggleNavOpen}>
@@ -36,3 +35,10 @@ export default function Navbar({ navIsOpen, toggleNavOpen }) {
 		</nav>
 	)
 }
+
+const CloseIcon = styled.div`
+	margin: 0 20px 20px 20px;
+	color: white;
+	font-size: 48px;
+	cursor: default;
+`
