@@ -32,13 +32,13 @@ export default function ProfileDetails() {
 	)
 }
 
-const ProfileContainer = styled.div`
+const ProfileContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: left;
 	margin: 25px;
-	margin-top: 75px;
+	margin-top: 50px;
 	padding: 20px;
 	letter-spacing: 1.5px;
 	box-shadow: 0 5px 5px 2px darkgrey;
