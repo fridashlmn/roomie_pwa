@@ -1,63 +1,64 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import Belongings from './Belongings'
-import { ProfileContainer } from '../../components/ContainerStyled'
+import ProfileBelongings from './ProfileBelongings'
+import { ProfileDetailsContainer } from '../../components/ContainerStyled'
 
 export default function ProfileDetails({ profile }) {
 	return (
-		<ProfileContainer>
-			<ProfileAvatar src={require(`${profile.avatar}`)} alt="" />
-			<ProfileName>
+		<ProfileDetailsContainer>
+			<Avatar src={require(`${profile.avatar}`)} alt="" />
+			<Name>
 				{profile.firstName} {profile.lastName}
-			</ProfileName>
+			</Name>
 			<HorizontalLine />
-			<ProfileContentTitle>duration</ProfileContentTitle>
-			<ProfileContent>
+			<ContentTitle>duration</ContentTitle>
+			<Content>
 				{profile.durationStart} - {profile.durationEnd}
-			</ProfileContent>
-			<ProfileContentTitle>rent</ProfileContentTitle>
-			<ProfileContent>{profile.rent}</ProfileContent>
-			<ProfileContentTitle>deposit</ProfileContentTitle>
-			<ProfileContent>{profile.deposit}</ProfileContent>
-			<ProfileBelongingsTitle>belongings</ProfileBelongingsTitle>
+			</Content>
+			<ContentTitle>rent</ContentTitle>
+			<Content>{profile.rent}</Content>
+			<ContentTitle>deposit</ContentTitle>
+			<Content>{profile.deposit}</Content>
+			<BelongingsTitle>belongings</BelongingsTitle>
 			{profile.belongings.map(item => (
-				<Belongings key={item} text={item} />
+				<ProfileBelongings key={item} text={item} />
 			))}
-		</ProfileContainer>
+		</ProfileDetailsContainer>
 	)
 }
 
-const ProfileName = styled.p`
-	align-self: center;
-	padding: 20px;
-	font-size: 2rem;
-	font-weight: bold;
-`
-
-const ProfileAvatar = styled.img`
+const Avatar = styled.img`
 	align-self: center;
 	margin-top: 20px;
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
 	object-fit: cover;
-	box-shadow: 0px 1px 3px 0px darkgrey;
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `
 
-const ProfileContentTitle = styled.p`
+const Name = styled.p`
+	align-self: center;
+	padding: 20px;
+	font-size: 2rem;
+	font-weight: bold;
+`
+
+const ContentTitle = styled.p`
 	padding-top: 20px;
 	padding-left: 10px;
 	font-weight: bold;
 	text-align: left;
 `
 
-const ProfileContent = styled.p`
+const Content = styled.p`
 	padding: 10px 0 10px 20px;
 	font-size: 20px;
 	font-weight: 100;
 `
 
-const ProfileBelongingsTitle = styled.p`
+const BelongingsTitle = styled.p`
 	padding-top: 20px;
 	padding-left: 10px;
 	padding-bottom: 10px;
