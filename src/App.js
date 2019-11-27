@@ -47,8 +47,3 @@ export default function App() {
 		setSelectedProfile(profileData[index])
 	}
 }
-
-/*
-to Do:
-Add ProfileDefault including conditional rendering when json is empty
-*/
