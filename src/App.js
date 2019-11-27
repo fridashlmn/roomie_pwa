@@ -5,6 +5,8 @@ import Navbar from './components/Navbar'
 import profileData from './pages/Profiles/profiles.json'
 import ProfileDetails from './pages/Profiles/ProfileDetails'
 import ProfileTeaser from './pages/Profiles/ProfileTeaser'
+import ProfileDefault from './pages/Profiles/ProfileDefault'
+import ProfileForm from './pages/Profiles/ProfileForm'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -16,12 +18,19 @@ export default function App() {
 			<Header toggleNavOpen={toggleNavOpen} />
 			<Switch>
 				<Route path="/flatmates">
-					<ProfileTeaser
-						profileData={profileData}
-						handleClickUserforDetails={index =>
-							handleClickUserforDetails(index)
-						}
-					/>
+					{profileData === {} ? (
+						<ProfileDefault />
+					) : (
+						<ProfileTeaser
+							profileData={profileData}
+							handleClickUserforDetails={index =>
+								handleClickUserforDetails(index)
+							}
+						/>
+					)}
+				</Route>
+				<Route path="/newroomie">
+					<ProfileForm />
 				</Route>
 				<Route path="/:handle">
 					<ProfileDetails profile={selectedProfile} />
@@ -38,3 +47,8 @@ export default function App() {
 		setSelectedProfile(profileData[index])
 	}
 }
+
+/*
+to Do:
+Add ProfileDefault including conditional rendering when json is empty
+*/

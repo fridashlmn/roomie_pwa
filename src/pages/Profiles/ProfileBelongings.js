@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function Belongings({ text }) {
+export default function ProfileBelongings({ text }) {
 	return <BelongingsList>{text}</BelongingsList>
 }
 
