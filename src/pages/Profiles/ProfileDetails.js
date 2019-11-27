@@ -1,17 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
-import profileData from './profiles.json'
 import Belongings from './Belongings'
+import { ProfileContainer } from '../../components/ContainerStyled'
 
-export default function ProfileDetails() {
-	const [profile, setProfile] = useState(profileData[0])
+export default function ProfileDetails({ profile }) {
 	return (
 		<ProfileContainer>
-			<img
-				className="profile__avatar"
-				src={require(`${profile.avatar}`)}
-				alt=""
-			/>
+			<ProfileAvatar src={require(`${profile.avatar}`)} alt="" />
 			<ProfileName>
 				{profile.firstName} {profile.lastName}
 			</ProfileName>
@@ -32,24 +27,21 @@ export default function ProfileDetails() {
 	)
 }
 
-const ProfileContainer = styled.section`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: left;
-	margin: 25px;
-	margin-top: 50px;
-	padding: 20px;
-	letter-spacing: 1.5px;
-	box-shadow: 0 5px 5px 2px darkgrey;
-	border-radius: 25px;
-`
-
 const ProfileName = styled.p`
 	align-self: center;
 	padding: 20px;
 	font-size: 2rem;
 	font-weight: bold;
+`
+
+const ProfileAvatar = styled.img`
+	align-self: center;
+	margin-top: 20px;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0px 1px 3px 0px darkgrey;
 `
 
 const ProfileContentTitle = styled.p`
