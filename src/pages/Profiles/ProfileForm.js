@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { SubmitButton } from '../../components/Buttons'
 
 export default function ProfileForm() {
 	return (
@@ -30,6 +31,7 @@ export default function ProfileForm() {
 				Add <b>stuff</b> you bring to the flat
 			</Label>
 			<Input placeholder="kitchen: cutlery"></Input>
+			<SubmitButton>ADD ME!</SubmitButton>
 		</Form>
 	)
 }
