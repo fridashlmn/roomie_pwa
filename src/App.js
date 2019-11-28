@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
+import ScrollToTop from './utils/ScrollToTop'
 import profileData from './pages/Profiles/profiles.json'
 import ProfileDetails from './pages/Profiles/ProfileDetails'
 import ProfileTeaser from './pages/Profiles/ProfileTeaser'
@@ -14,6 +15,7 @@ export default function App() {
 
 	return (
 		<Router>
+			<ScrollToTop />
 			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
 			<Switch>
