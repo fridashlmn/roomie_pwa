@@ -13,8 +13,10 @@ export default function Header({ toggleNavOpen }) {
 			pagename = 'dashboard'
 			break
 		case '/flatmates':
-			height = '68px'
 			pagename = 'flatmates'
+			break
+		case '/contracts':
+			pagename = 'contracts'
 			break
 	}
 

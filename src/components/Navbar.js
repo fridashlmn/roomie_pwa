@@ -26,8 +26,8 @@ export default function Navbar({ navIsOpen, toggleNavOpen }) {
 			<NavItem className="nav__item" to="/" onClick={toggleNavOpen}>
 				EXPENSES
 			</NavItem>
-			<NavItem className="nav__item" to="/" onClick={toggleNavOpen}>
-				CONSTRACTS
+			<NavItem className="nav__item" to="/contracts" onClick={toggleNavOpen}>
+				CONTRACTS
 			</NavItem>
 			<NavItem className="nav__item" to="/" onClick={toggleNavOpen}>
 				SETTINGS

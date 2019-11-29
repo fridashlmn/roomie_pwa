@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import ProfileBelongings from './ProfileBelongings'
-import { ProfileDetailsContainer } from '../../components/ContainerStyled'
+import { DetailsContainer } from '../../components/ContainerStyled'
 
 export default function ProfileDetails({ profile }) {
 	return (
-		<ProfileDetailsContainer>
+		<DetailsContainer>
 			<Avatar src={require(`${profile.avatar}`)} alt="" />
 			<Name>
 				{profile.firstName} {profile.lastName}
@@ -23,7 +23,7 @@ export default function ProfileDetails({ profile }) {
 			{profile.belongings.map(item => (
 				<ProfileBelongings key={item} text={item} />
 			))}
-		</ProfileDetailsContainer>
+		</DetailsContainer>
 	)
 }
 
