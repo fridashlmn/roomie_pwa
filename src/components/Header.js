@@ -1,23 +1,39 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { useLocation } from 'react-router-dom'
 
 export default function Header({ toggleNavOpen }) {
+	let height = '68px'
+	let pagename
+	const { pathname } = useLocation()
+
+	switch (pathname) {
+		case '/':
+			height = '100vh'
+			pagename = 'dashboard'
+			break
+		case '/flatmates':
+			height = '68px'
+			pagename = 'flatmates'
+			break
+	}
+
 	return (
 		<Appbar>
-			<Toolbar>
+			<Toolbar propHeight={height}>
 				<MenuIcon
 					onClick={toggleNavOpen}
 					src={require('../images/icon_menu.png')}
 					alt=""
 				/>
-				<HeaderTitle>page title</HeaderTitle>
+				<HeaderTitle>{pagename}</HeaderTitle>
 				<LogoIcon src={require('../images/Logo.png')} alt="" />
 			</Toolbar>
 		</Appbar>
 	)
 }
 
-const Appbar = styled.header`
+const Appbar = styled.div`
 	position: sticky;
 	top: 0;
 	left: auto;
@@ -28,8 +44,8 @@ const Appbar = styled.header`
 const Toolbar = styled.div`
 	display: flex;
 	position: relative;
-	align-items: center;
-	min-height: 68px;
+	align-items: flex-start;
+	height: ${props => props.propHeight};
 	width: 100vw;
 	padding-left: 24px;
 	padding-right: 24px;
@@ -38,13 +54,16 @@ const Toolbar = styled.div`
 		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `
 
-const HeaderTitle = styled.h3`
-	padding: 0 20px;
+const HeaderTitle = styled.h4`
+	padding: 25px 25px;
 	background: transparent;
 	color: #fdfdfd;
+	letter-spacing: 0.12em;
+	font-size: 18px;
 `
 
 const LogoIcon = styled.img`
+	padding-top: 15px;
 	right: 0;
 	width: 30px;
 	margin: 0 0 0 auto;
@@ -53,6 +72,7 @@ const LogoIcon = styled.img`
 `
 
 const MenuIcon = styled.img`
+	padding-top: 20px;
 	background: transparent;
 	width: 30px;
 	cursor: default;

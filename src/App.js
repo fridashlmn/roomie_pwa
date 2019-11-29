@@ -8,6 +8,7 @@ import ProfileDetails from './pages/Profiles/ProfileDetails'
 import ProfileTeaser from './pages/Profiles/ProfileTeaser'
 import ProfileDefault from './pages/Profiles/ProfileDefault'
 import ProfileForm from './pages/Profiles/ProfileForm'
+import Dashboard from './pages/Dashboard/Dashboard'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -19,6 +20,9 @@ export default function App() {
 			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
 			<Switch>
+				<Route exact path="/">
+					<Dashboard profile={selectedProfile} />
+				</Route>
 				<Route path="/flatmates">
 					{profileData === {} ? (
 						<ProfileDefault />
