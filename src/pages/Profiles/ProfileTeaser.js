@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { Container, TeaserSection } from '../../components/ContainerStyled'
-import { AddRoomieButton } from '../../components/Buttons'
+import { Container, TeaserContainer } from '../../components/Container'
+import { Button } from '../../components/Buttons'
 
 export default function ProfileTeaser({
 	profileData,
@@ -15,7 +15,7 @@ export default function ProfileTeaser({
 					to={`/${profile.firstName}`}
 					onClick={() => handleClickUserForDetails(index)}
 				>
-					<TeaserSection>
+					<TeaserContainer>
 						<TeaserImage src={require(`${profile.avatar}`)} alt="" />
 						<TeaserTitle>
 							{profile.firstName} {profile.lastName}
@@ -23,11 +23,11 @@ export default function ProfileTeaser({
 						<TeaserText>
 							{profile.durationStart} - {profile.durationEnd}
 						</TeaserText>
-					</TeaserSection>
+					</TeaserContainer>
 				</LinkStyled>
 			))}
 			<Link to="/newroomie" className="teaser__link">
-				<AddRoomieButton>ADD A ROOMIE</AddRoomieButton>
+				<Button>ADD A ROOMIE</Button>
 			</Link>
 		</Container>
 	)

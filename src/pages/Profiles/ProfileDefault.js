@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { Container } from '../../components/ContainerStyled'
-import { AddRoomieButton } from '../../components/Buttons'
+import { Container } from '../../components/Container'
+import { Button } from '../../components/Buttons'
 
 export default function ProfileDefault() {
 	return (
@@ -14,7 +14,7 @@ export default function ProfileDefault() {
 			</DefaultText>
 
 			<Link to="/newroomie" className="teaser__link">
-				<AddRoomieButton>ADD A ROOMIE</AddRoomieButton>
+				<Button>ADD A ROOMIE</Button>
 			</Link>
 		</Container>
 	)

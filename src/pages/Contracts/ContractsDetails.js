@@ -1,43 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContractContainer } from '../../components/ContainerStyled'
+import { ContainerBoxShadow } from '../../components/Container'
 
 export default function ContractDetails({ contract }) {
 	return (
 		<>
 			<Background>
 				<br />
-				<ContractContainer marginTop="40px">
-					<Title>title</Title>
-					{contract.title}
+				<ContractContainer>
+					title
+					<Content>{contract.title}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>description</Title>
-					{contract.description}
+					description
+					<Content>{contract.description}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>price</Title>
-					{contract.price}
+					price
+					<Content>{contract.price}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>contract start</Title>
-					{contract.start}
+					contract start
+					<Content>{contract.start}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>notice</Title>
-					{contract.notice}
+					notice
+					<Content>{contract.notice}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>customer number</Title>
-					{contract.customerNumber}
+					customer number
+					<Content>{contract.customerNumber}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>customer name</Title>
-					{contract.customerName}
+					customer name
+					<Content>{contract.customerName}</Content>
 				</ContractContainer>
 				<ContractContainer>
-					<Title>comment</Title>
-					{contract.comment}
+					comment
+					<Content>{contract.comment}</Content>
 				</ContractContainer>
 				<br />
 			</Background>
@@ -45,12 +45,18 @@ export default function ContractDetails({ contract }) {
 	)
 }
 
-const Title = styled.p`
+const Content = styled.p`
 	font-weight: bold;
-	padding: 5px;
+	margin-top: 10px;
 `
 
 const Background = styled.div`
 	margin-top: -20px;
 	background: linear-gradient(to bottom, #1ca7ec, #1f2f98);
+`
+
+const ContractContainer = styled(ContainerBoxShadow)`
+	margin-top: 40px;
+	border-radius: 10px;
+	padding: 15px 35px;
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { SubmitButton } from '../../components/Buttons'
+import { Button } from '../../components/Buttons'
+import { Form } from '../../components/Container'
 
 export default function ProfileForm() {
 	return (
@@ -14,38 +15,27 @@ export default function ProfileForm() {
 			<Label>
 				Add your <b>name</b>
 			</Label>
-			<Input placeholder="jane doe"></Input>
+			<Input name="name" placeholder="jane doe"></Input>
 			<Label>
 				Add your <b>duration</b> in the flat
 			</Label>
-			<Input placeholder="2019-12-01 - unlimited"></Input>
+			<Input name="duration" placeholder="2019-12-01 - unlimited"></Input>
 			<Label>
 				Add your <b>rent</b>
 			</Label>
-			<Input placeholder="450 €"></Input>
+			<Input name="rent" placeholder="450 €"></Input>
 			<Label>
 				Add your <b>deposit</b>
 			</Label>
-			<Input placeholder="600 €"></Input>
+			<Input name="deposit" placeholder="600 €"></Input>
 			<Label>
 				Add <b>stuff</b> you bring to the flat
 			</Label>
-			<Input placeholder="kitchen: cutlery"></Input>
-			<SubmitButton>ADD ME!</SubmitButton>
+			<Input name="stuff" placeholder="kitchen: cutlery"></Input>
+			<Button>ADD ME!</Button>
 		</Form>
 	)
 }
-
-const Form = styled.form`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: left;
-	margin: 25px;
-	margin-top: 50px;
-	padding: 20px;
-	letter-spacing: 1.5px;
-`
 
 const Label = styled.label`
 	margin-top: 20px;

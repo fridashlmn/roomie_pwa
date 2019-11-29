@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Container, TeaserSection } from '../../components/ContainerStyled'
+import { Container, TeaserContainer } from '../../components/Container'
 
 export default function ContractsTeaser({
 	contractsData,
@@ -15,10 +15,10 @@ export default function ContractsTeaser({
 					to={`/${contract.title}`}
 					onClick={() => handleClickContractForDetails(index)}
 				>
-					<TeaserSection width="325px" background={backgroundColor}>
+					<TeaserContainer width="325px" background={backgroundColor}>
 						<TeaserTitle>{contract.title}</TeaserTitle>
 						<TeaserText>{contract.description}</TeaserText>
-					</TeaserSection>
+					</TeaserContainer>
 				</LinkStyled>
 			))}
 		</Container>
@@ -30,6 +30,7 @@ const LinkStyled = styled(Link)`
 	cursor: default;
 	color: #222;
 `
+
 const TeaserTitle = styled.div`
 	background: transparent;
 	padding-top: 20px;

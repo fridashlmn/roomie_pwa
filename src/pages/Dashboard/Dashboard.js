@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { DashboardContainer } from '../../components/ContainerStyled'
-import '../../styles/styles.scss'
+import { DashboardContainer } from '../../components/Container'
 
 export default function Dashboard({ profile }) {
 	return (
@@ -40,6 +39,7 @@ const Greeting = styled.p`
 	font-size: 40px;
 	line-height: 1.25;
 `
+
 const News = styled.div`
 	align-self: center;
 	width: 80vw;

@@ -15,9 +15,26 @@ export default function Header({ toggleNavOpen }) {
 		case '/flatmates':
 			pagename = 'flatmates'
 			break
+		case '/social wall':
+			pagename = 'social wall'
+			break
+		case '/calender':
+			pagename = 'calender'
+			break
+		case '/inventory':
+			pagename = 'inventory'
+			break
+		case '/expenses':
+			pagename = 'expenses'
+			break
 		case '/contracts':
 			pagename = 'contracts'
 			break
+		case '/settings':
+			pagename = 'settings'
+			break
+		default:
+			pagename = ''
 	}
 
 	return (
