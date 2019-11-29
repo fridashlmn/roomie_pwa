@@ -33,8 +33,8 @@ export default function App() {
 					) : (
 						<ProfileTeaser
 							profileData={profileData}
-							handleClickUserforDetails={index =>
-								handleClickUserforDetails(index)
+							handleClickUserForDetails={index =>
+								handleClickUserForDetails(index)
 							}
 						/>
 					)}
@@ -48,8 +48,8 @@ export default function App() {
 				<Route path="/contracts">
 					<ContractsTeaser
 						contractsData={contractsData}
-						handleClickContractforDetails={index =>
-							handleClickContractforDetails(index)
+						handleClickContractForDetails={index =>
+							handleClickContractForDetails(index)
 						}
 					/>
 				</Route>
@@ -64,11 +64,11 @@ export default function App() {
 		setNavIsOpen(!navIsOpen)
 	}
 
-	function handleClickUserforDetails(index) {
+	function handleClickUserForDetails(index) {
 		setSelectedProfile(profileData[index])
 	}
 
-	function handleClickContractforDetails(index) {
+	function handleClickContractForDetails(index) {
 		setSelectedContract(contractsData[index])
 	}
 }

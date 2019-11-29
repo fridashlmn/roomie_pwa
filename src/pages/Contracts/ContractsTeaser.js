@@ -5,7 +5,7 @@ import { Container, TeaserSection } from '../../components/ContainerStyled'
 
 export default function ContractsTeaser({
 	contractsData,
-	handleClickContractforDetails
+	handleClickContractForDetails
 }) {
 	const backgroundColor = 'linear-gradient(to right, #787ff6, #4adede);'
 	return (
@@ -13,7 +13,7 @@ export default function ContractsTeaser({
 			{contractsData.map((contract, index) => (
 				<LinkStyled
 					to={`/${contract.title}`}
-					onClick={() => handleClickContractforDetails(index)}
+					onClick={() => handleClickContractForDetails(index)}
 				>
 					<TeaserSection width="325px" background={backgroundColor}>
 						<TeaserTitle>{contract.title}</TeaserTitle>

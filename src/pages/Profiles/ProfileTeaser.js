@@ -6,14 +6,14 @@ import { AddRoomieButton } from '../../components/Buttons'
 
 export default function ProfileTeaser({
 	profileData,
-	handleClickUserforDetails
+	handleClickUserForDetails
 }) {
 	return (
 		<Container>
 			{profileData.map((profile, index) => (
 				<LinkStyled
 					to={`/${profile.firstName}`}
-					onClick={() => handleClickUserforDetails(index)}
+					onClick={() => handleClickUserForDetails(index)}
 				>
 					<TeaserSection>
 						<TeaserImage src={require(`${profile.avatar}`)} alt="" />
