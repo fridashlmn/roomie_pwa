@@ -1,0 +1,46 @@
+[
+	{
+		"id": "1",
+		"title": "vodafone",
+		"description": "internet provider",
+		"price": "39,99 € / monthly",
+		"start": "01.12.2016",
+		"notice": "3 months",
+		"customerNumber": "1239876",
+		"customerName": "Malina Stark",
+		"comment": "should look into a new deal with more bandwidth"
+	},
+	{
+		"id": "2",
+		"title": "stromio",
+		"description": "electricity provider",
+		"price": "9,99 € / monthly",
+		"start": "01.12.2016",
+		"notice": "1 months",
+		"customerNumber": "98712345",
+		"customerName": "Malina Stark",
+		"comment": "still waiting for repayment from 2018 (01.11.2019)"
+	},
+	{
+		"id": "3",
+		"title": "GEZ",
+		"description": "rundfunkbeitrag",
+		"price": "17,50 € / monthly",
+		"start": "01.12.2016",
+		"notice": "-",
+		"customerNumber": "6547891",
+		"customerName": "Malina Stark",
+		"comment": "Info for new roomies: only one member of the flat has to pay!"
+	},
+	{
+		"id": "4",
+		"title": "Netflix",
+		"description": "streaming",
+		"price": "12,99 € / monthly",
+		"start": "01.12.2018",
+		"notice": "-",
+		"customerNumber": "malina.stark@gmail.com",
+		"customerName": "Malina Stark",
+		"comment": ""
+	}
+]

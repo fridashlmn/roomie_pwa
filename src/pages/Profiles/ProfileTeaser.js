@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { Container } from '../../components/ContainerStyled'
+import { Container, TeaserSection } from '../../components/ContainerStyled'
 import { AddRoomieButton } from '../../components/Buttons'
 
 export default function ProfileTeaser({
@@ -14,8 +14,6 @@ export default function ProfileTeaser({
 				<LinkStyled
 					to={`/${profile.firstName}`}
 					onClick={() => handleClickUserforDetails(index)}
-					handle={profile.firstName}
-					className="teaser__link"
 				>
 					<TeaserSection>
 						<TeaserImage src={require(`${profile.avatar}`)} alt="" />
@@ -34,15 +32,6 @@ export default function ProfileTeaser({
 		</Container>
 	)
 }
-
-const TeaserSection = styled.div`
-	width: 300px;
-	margin-bottom: 25px;
-	background: #fdfdfd;
-	border-radius: 25px;
-	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-`
 
 const TeaserTitle = styled.div`
 	padding-top: 10px;
