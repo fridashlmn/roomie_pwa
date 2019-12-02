@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom'
 import { Container } from '../../components/Container'
 import { Button } from '../../components/Buttons'
 
-export default function ProfileDefault() {
+export default function ContractsDefault() {
 	return (
 		<Container>
 			<DefaultImage src={require('../../images/profile_default.png')} alt="" />
 			<DefaultText>
 				oh no! <br />
-				looks like you havent added a roomie yet!
+				looks like you haven't added a contract yet!
 			</DefaultText>
-
-			<Link to="/newroomie" className="teaser__link">
+			<Link to="/newcontract">
 				<Button>ADD A CONTRACT!</Button>
 			</Link>
 		</Container>

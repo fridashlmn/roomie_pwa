@@ -13,6 +13,7 @@ import ContractsTeaser from './pages/Contracts/ContractsTeaser'
 import ContractDetails from './pages/Contracts/ContractsDetails'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ContractForm from './pages/Contracts/ContractsForm'
+import ContractsDefault from './pages/Contracts/ContractsDefault'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -47,12 +48,16 @@ export default function App() {
 					<ProfileForm />
 				</Route>
 				<Route path="/contracts">
-					<ContractsTeaser
-						contractsData={contractsData}
-						handleClickContractForDetails={index =>
-							handleClickContractForDetails(index)
-						}
-					/>
+					{contractsData === {} ? (
+						<ContractsDefault />
+					) : (
+						<ContractsTeaser
+							contractsData={contractsData}
+							handleClickContractForDetails={index =>
+								handleClickContractForDetails(index)
+							}
+						/>
+					)}
 				</Route>
 				<Route path={`/${selectedContract.title}`}>
 					<ContractDetails contract={selectedContract} />
