@@ -13,7 +13,7 @@ export default function ContractsDefault() {
 				looks like you haven't added a contract yet!
 			</DefaultText>
 			<Link to="/newcontract">
-				<Button>ADD A CONTRACT</Button>
+				<Button>ADD A CONTRACT!</Button>
 			</Link>
 		</Container>
 	)

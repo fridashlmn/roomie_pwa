@@ -37,7 +37,7 @@ export default function ContractForm() {
 			<Label>
 				Add <b>comments</b>
 			</Label>
-			<Input name="comments" placeholder="lore ipsum"></Input>
+			<Input name="comments" placeholder="lorem ipsum"></Input>
 			<Button>ADD CONTRACT!</Button>
 		</Form>
 	)
@@ -58,27 +58,3 @@ const Input = styled.input`
 	box-shadow: none;
 	font-size: 16px;
 `
-
-const ImageAddProfile = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 150px;
-	height: 150px;
-	margin-bottom: 30px;
-	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-	border-radius: 50%;
-`
-
-const IconAddProfile = styled.img`
-	left: 100px;
-	width: 50px;
-	height: 50px;
-	background: transparent;
-	object-fit: cover;
-`
-
-/*
-Add name to inputs!
-*/

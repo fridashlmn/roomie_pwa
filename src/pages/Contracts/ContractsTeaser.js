@@ -23,7 +23,7 @@ export default function ContractsTeaser({
 				</LinkStyled>
 			))}
 			<Link to="/newcontract">
-				<Button>ADD A CONTRACT</Button>
+				<Button>ADD A CONTRACT!</Button>
 			</Link>
 		</Container>
 	)

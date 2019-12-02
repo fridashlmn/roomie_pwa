@@ -10,11 +10,11 @@ export default function ProfileDefault() {
 			<DefaultImage src={require('../../images/profile_default.png')} alt="" />
 			<DefaultText>
 				oh no! <br />
-				looks like you haven't added a roomie yet!
+				looks like you havent added a roomie yet!
 			</DefaultText>
 
 			<Link to="/newroomie" className="teaser__link">
-				<Button>ADD A ROOMIE</Button>
+				<Button>ADD A CONTRACT!</Button>
 			</Link>
 		</Container>
 	)
