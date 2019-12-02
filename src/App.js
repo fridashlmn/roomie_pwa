@@ -12,6 +12,7 @@ import ProfileForm from './pages/Profiles/ProfileForm'
 import ContractsTeaser from './pages/Contracts/ContractsTeaser'
 import ContractDetails from './pages/Contracts/ContractsDetails'
 import Dashboard from './pages/Dashboard/Dashboard'
+import ContractForm from './pages/Contracts/ContractsForm'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -55,6 +56,9 @@ export default function App() {
 				</Route>
 				<Route path={`/${selectedContract.title}`}>
 					<ContractDetails contract={selectedContract} />
+				</Route>
+				<Route path="/newcontract">
+					<ContractForm />
 				</Route>
 			</Switch>
 		</Router>

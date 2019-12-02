@@ -26,7 +26,7 @@ export default function ProfileTeaser({
 					</TeaserContainer>
 				</LinkStyled>
 			))}
-			<Link to="/newroomie" className="teaser__link">
+			<Link to="/newroomie">
 				<Button>ADD A ROOMIE</Button>
 			</Link>
 		</Container>

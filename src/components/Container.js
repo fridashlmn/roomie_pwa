@@ -53,7 +53,6 @@ export const Form = styled.form`
 	justify-content: center;
 	align-items: left;
 	margin: 25px;
-	margin-top: 50px;
 	padding: 20px;
 	letter-spacing: 1.5px;
 `

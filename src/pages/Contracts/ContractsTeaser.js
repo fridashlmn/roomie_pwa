@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Container, TeaserContainer } from '../../components/Container'
+import { Button } from '../../components/Buttons'
 
 export default function ContractsTeaser({
 	contractsData,
@@ -21,6 +22,9 @@ export default function ContractsTeaser({
 					</TeaserContainer>
 				</LinkStyled>
 			))}
+			<Link to="/newcontract">
+				<Button>ADD A ROOMIE</Button>
+			</Link>
 		</Container>
 	)
 }
