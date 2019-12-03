@@ -1,4 +1,4 @@
-const db = require('../util/admin')
+const { db } = require('../util/admin')
 
 exports.getAllPosts = (req, res) => {
 	db.collection('posts')
@@ -11,20 +11,25 @@ exports.getAllPosts = (req, res) => {
 					postId: doc.id,
 					body: doc.data().body,
 					userHandle: doc.data().userHandle,
-					createdAt: doc.data().createdAt,
-					likeCount: doc.data().likes,
-					commentCount: doc.data().comments
+					createdAt: doc.data().createdAt
 				})
 			})
 			return res.json(posts)
 		})
-		.catch(err => console.error(err))
+		.catch(err => {
+			console.error(err)
+			res.statu(500).json({ error: err.code })
+		})
 }
 
 exports.postOnePost = (req, res) => {
+	if (req.body.body.trim() === '') {
+		return res.status(400).json({ body: 'Body must not be empty' })
+	}
+
 	const newPost = {
 		body: req.body.body,
-		userHandle: req.body.userHandle,
+		userHandle: req.user.handle,
 		createdAt: new Date().toISOString()
 	}
 
@@ -34,7 +39,7 @@ exports.postOnePost = (req, res) => {
 			res.json({ message: `document ${doc.id} created succsessfully` })
 		})
 		.catch(err => {
-			res.status(500).json({ error: `Something went wrong` })
+			res.status(403).json({ error: `Something went wrong` })
 			console.error(err)
 		})
 }

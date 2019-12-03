@@ -1,10 +1,17 @@
 const functions = require('firebase-functions')
-const express = require('express')
-const app = express()
+const app = require('express')()
+const FBAuth = require('./util/fbAuth')
 
 const { getAllPosts, postOnePost } = require('./handlers/posts')
+const { signup, login, uploadImage } = require('./handlers/users')
 
+//post routes
 app.get('/posts', getAllPosts)
 app.post('/post', postOnePost)
+
+//user routes
+app.post('/signup', signup)
+app.post('/login', login)
+app.post('/user/image', FBAuth, uploadImage)
 
 exports.api = functions.region('europe-west1').https.onRequest(app)
