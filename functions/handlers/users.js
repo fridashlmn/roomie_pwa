@@ -3,7 +3,11 @@ const config = require('../util/config')
 const firebase = require('firebase')
 firebase.initializeApp(config)
 
-const { validateSignUpData, validateLogInData } = require('../util/validators')
+const {
+	validateSignUpData,
+	validateLogInData,
+	reduceUserDetails
+} = require('../util/validators')
 
 //SIGNUP ROUTE
 exports.signup = (req, res) => {
@@ -88,6 +92,48 @@ exports.login = (req, res) => {
 		})
 }
 
+//ADD USER DETAILS
+exports.addUserDetails = (req, res) => {
+	let userDetails = reduceUserDetails(req.body)
+
+	db.doc(`/users/${req.user.handle}`)
+		.update(userDetails)
+		.then(() => {
+			return res.json({ message: 'Details added successfully' })
+		})
+		.catch(err => {
+			console.error(err)
+			return res.status(500).json({ error: err.code })
+		})
+}
+
+//GET OWN USER DETAILS
+exports.getAuthenticatedUser = (req, res) => {
+	let userData = {}
+	db.doc(`/users/${req.user.handle}`)
+		.get()
+		.then(doc => {
+			if (doc.exists) {
+				userData.credentials = doc.data()
+				return db
+					.collection('likes')
+					.where('userHandle', '==', req.user.handle)
+					.get()
+			}
+		})
+		.then(data => {
+			userData.likes = []
+			data.forEach(doc => {
+				userData.likes.push(doc.data())
+			})
+			return res.json(userData)
+		})
+		.catch(err => {
+			console.error(err)
+			return res.status(500).json({ error: err.code })
+		})
+}
+
 //IMAGE UPLOAD ROUTE
 exports.uploadImage = (req, res) => {
 	const BusBoy = require('busboy')
@@ -101,10 +147,9 @@ exports.uploadImage = (req, res) => {
 	let imageToBeUploaded = {}
 
 	busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
-		console.log(fieldname)
-		console.log(filename)
-		console.log(mimetype)
-
+		if (mimetype !== 'image/jpeg' && mimetype !== 'image/png') {
+			return res.status(400).json({ error: 'wrong file type submitted' })
+		}
 		//my.image.png -> to get the png (or jpg) we need to split the string
 		const imageExtension = filename.split('.')[filename.split('.').length - 1]
 		imageFileName = `${Math.round(Math.random() * 10000000)}.${imageExtension}`

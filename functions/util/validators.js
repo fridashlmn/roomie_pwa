@@ -40,3 +40,27 @@ exports.validateLogInData = data => {
 		valid: Object.keys(errors).length === 0 ? true : false
 	}
 }
+
+exports.reduceUserDetails = data => {
+	let userDetails = {}
+
+	if (!isEmpty(data.firstName.trim())) {
+		userDetails.firstName = data.firstName
+	}
+	if (!isEmpty(data.lastName.trim())) {
+		userDetails.lastName = data.lastName
+	}
+	if (!isEmpty(data.durationStart.trim())) {
+		userDetails.durationStart = data.durationStart
+	}
+	if (!isEmpty(data.durationEnd.trim())) {
+		userDetails.durationEnd = data.durationEnd
+	}
+	if (!isEmpty(data.rent.trim())) {
+		userDetails.rent = data.rent
+	}
+	if (!isEmpty(data.deposit.trim())) {
+		userDetails.deposit = data.deposit
+	}
+	return userDetails
+}
