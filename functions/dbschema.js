@@ -33,10 +33,10 @@ let db = {
 	],
 	notifications: [
 		{
-			recipient: 'user',
+			recipient: 'malina',
 			sender: 'john',
 			read: 'true | false',
-			postId: 'kdjsfgdksuufhgkdsufky',
+			postId: '3T2GUVZi0FJRrM0paaqZ',
 			type: 'like | comment',
 			createdAt: '2019-03-15T10:59:52.798Z'
 		}
@@ -59,11 +59,11 @@ const userDetails = {
 	},
 	likes: [
 		{
-			userHandle: 'user',
-			postId: 'hh7O5oWfWucVzGbHH2pa'
+			userHandle: 'malina',
+			postId: 'KhgfUTjEHILGMVXg98vR'
 		},
 		{
-			userHandle: 'user',
+			userHandle: 'malina',
 			postId: '3IOnFoQexRcofs5OhBXO'
 		}
 	]
