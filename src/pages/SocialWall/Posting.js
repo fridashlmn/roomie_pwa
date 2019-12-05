@@ -18,7 +18,7 @@ export default function Posting({ post }) {
 				{post.likeCount} <Heart>&hearts; </Heart>
 			</Likes>
 			<Comments>{post.commentCount} comments</Comments>
-			<HR></HR>
+			<HorizontalLine />
 			<LikeButton>LIKE</LikeButton>
 			<CommentButton>COMMENT</CommentButton>
 		</Grid>
@@ -42,7 +42,7 @@ const Grid = styled.div`
 		'likeBtn likeBtn commentBtn commentBtn';
 `
 
-const HR = styled.hr`
+const HorizontalLine = styled.div`
 	grid-area: hr;
 	align-self: center;
 	background: #7bd5f5;
