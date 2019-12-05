@@ -24,7 +24,7 @@ const {
 } = require('./handlers/users')
 
 //POSTING ROUTES
-app.get('/posts', FBAuth, getAllPosts)
+app.get('/posts', getAllPosts)
 app.post('/post', FBAuth, postOnePost)
 app.get('/post/:postId', FBAuth, getPost)
 app.post('/post/:postId/comment', FBAuth, commentOnPost)

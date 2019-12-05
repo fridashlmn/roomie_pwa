@@ -14,6 +14,7 @@ import ContractDetails from './pages/Contracts/ContractsDetails'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ContractForm from './pages/Contracts/ContractsForm'
 import ContractsDefault from './pages/Contracts/ContractsDefault'
+import SocialWall from './pages/SocialWall/SocialWall'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -46,6 +47,9 @@ export default function App() {
 				</Route>
 				<Route path="/newroomie">
 					<ProfileForm />
+				</Route>
+				<Route path="/socialwall">
+					<SocialWall />
 				</Route>
 				<Route path="/contracts">
 					{contractsData === {} ? (
