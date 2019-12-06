@@ -1,60 +1,72 @@
+//IMPORT FUNCTIONALITY
 import React from 'react'
-import styled from 'styled-components/macro'
+
+//IMPORT COMPONENTS
+import { Form, Label, Input } from '../../components/Forms'
 import { Button } from '../../components/Buttons'
-import { Form } from '../../components/Container'
 
 export default function ContractForm() {
+	const marginTop = '5px'
+
 	return (
 		<Form>
 			<Label>
 				Add the <b>title</b>
 			</Label>
-			<Input name="title" placeholder="vodafone"></Input>
+			<Input name="title" placeholder="vodafone" marginTop={marginTop}></Input>
 			<Label>
 				Add the <b>description</b>
 			</Label>
-			<Input name="description" placeholder="internet provider"></Input>
+			<Input
+				name="description"
+				placeholder="internet provider"
+				marginTop={marginTop}
+			></Input>
 			<Label>
 				Add the <b>price</b>
 			</Label>
-			<Input name="price" placeholder="20 €/month"></Input>
+			<Input
+				name="price"
+				placeholder="20 €/month"
+				marginTop={marginTop}
+			></Input>
 			<Label>
 				Add the <b>start date</b>
 			</Label>
-			<Input name="start" placeholder="01.12.2019"></Input>
+			<Input
+				name="start"
+				placeholder="01.12.2019"
+				marginTop={marginTop}
+			></Input>
 			<Label>
 				Add the <b>notice period</b>
 			</Label>
-			<Input name="notice" placeholder="3 month"></Input>
+			<Input name="notice" placeholder="3 month" marginTop={marginTop}></Input>
 			<Label>
 				Add the <b>customer number</b>
 			</Label>
-			<Input name="customerNumber" placeholder="1234987"></Input>
+			<Input
+				name="customerNumber"
+				placeholder="1234987"
+				marginTop={marginTop}
+			></Input>
 			<Label>
 				Add the <b>customer name</b>
 			</Label>
-			<Input name="customerName" placeholder="Malina Stark"></Input>
+			<Input
+				name="customerName"
+				placeholder="Malina Stark"
+				marginTop={marginTop}
+			></Input>
 			<Label>
 				Add <b>comments</b>
 			</Label>
-			<Input name="comments" placeholder="lorem ipsum"></Input>
+			<Input
+				name="comments"
+				placeholder="lorem ipsum"
+				marginTop={marginTop}
+			></Input>
 			<Button>ADD CONTRACT!</Button>
 		</Form>
 	)
 }
-
-const Label = styled.label`
-	margin-top: 20px;
-	padding-left: 10px;
-`
-
-const Input = styled.input`
-	padding: 15px;
-	margin-top: 5px;
-	border: 1px solid #444;
-	border-radius: 0;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	font-size: 16px;
-`

@@ -1,9 +1,14 @@
+//IMPORT FUNCTIONALITY
 import React from 'react'
 import styled from 'styled-components/macro'
+
+//IMPORT COMPONENTS
+import { Form, Label, Input } from '../../components/Forms'
 import { Button } from '../../components/Buttons'
-import { Form } from '../../components/Container'
 
 export default function ProfileForm() {
+	const marginTop = '5px'
+
 	return (
 		<Form>
 			<ImageAddProfile>
@@ -15,43 +20,35 @@ export default function ProfileForm() {
 			<Label>
 				Add your <b>name</b>
 			</Label>
-			<Input name="name" placeholder="jane doe"></Input>
+			<Input name="name" placeholder="jane doe" marginTop={marginTop}></Input>
 			<Label>
 				Add your <b>duration</b> in the flat
 			</Label>
-			<Input name="duration" placeholder="2019-12-01 - unlimited"></Input>
+			<Input
+				name="duration"
+				placeholder="2019-12-01 - unlimited"
+				marginTop={marginTop}
+			></Input>
 			<Label>
 				Add your <b>rent</b>
 			</Label>
-			<Input name="rent" placeholder="450 €"></Input>
+			<Input name="rent" placeholder="450 €" marginTop={marginTop}></Input>
 			<Label>
 				Add your <b>deposit</b>
 			</Label>
-			<Input name="deposit" placeholder="600 €"></Input>
+			<Input name="deposit" placeholder="600 €" marginTop={marginTop}></Input>
 			<Label>
 				Add <b>stuff</b> you bring to the flat
 			</Label>
-			<Input name="stuff" placeholder="kitchen: cutlery"></Input>
+			<Input
+				name="stuff"
+				placeholder="kitchen: cutlery"
+				marginTop={marginTop}
+			></Input>
 			<Button>ADD ME!</Button>
 		</Form>
 	)
 }
-
-const Label = styled.label`
-	margin-top: 20px;
-	padding-left: 10px;
-`
-
-const Input = styled.input`
-	padding: 15px;
-	margin-top: 5px;
-	border: 1px solid #444;
-	border-radius: 0;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	font-size: 16px;
-`
 
 const ImageAddProfile = styled.div`
 	display: flex;

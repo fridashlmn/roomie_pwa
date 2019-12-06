@@ -1,6 +1,9 @@
+//IMPORT FUNCTIONALITY
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
+
+//IMPORT COMPONENTS
 import { Container, TeaserContainer } from '../../components/Container'
 import { Button } from '../../components/Buttons'
 

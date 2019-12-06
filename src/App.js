@@ -1,10 +1,15 @@
+//IMPORT FUNCTIONALITY
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+//IMPORT COMPONENTS
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import ScrollToTop from './utils/ScrollToTop'
 import profileData from './json/profiles.json'
 import contractsData from './json/contracts.json'
+
+//IMPORT PAGES
 import ProfileDetails from './pages/Profiles/ProfileDetails'
 import ProfileTeaser from './pages/Profiles/ProfileTeaser'
 import ProfileDefault from './pages/Profiles/ProfileDefault'

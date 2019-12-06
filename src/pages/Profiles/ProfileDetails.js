@@ -1,5 +1,8 @@
+//IMPORT FUNCTIONALITY
 import React from 'react'
 import styled from 'styled-components/macro'
+
+//IMPORT COMPONENTS
 import ProfileBelongings from './ProfileBelongings'
 import { ContainerBoxShadow } from '../../components/Container'
 
@@ -66,7 +69,7 @@ const BelongingsTitle = styled.p`
 	text-align: left;
 `
 
-const HorizontalLine = styled.hr`
+const HorizontalLine = styled.div`
 	align-self: center;
 	background: linear-gradient(to right, #787ff6, #7bd5f5);
 	width: 200px;
