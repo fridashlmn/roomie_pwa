@@ -59,8 +59,6 @@ const Input = styled.input`
 	background: #fdfdfd;
 	border: none;
 	border-radius: 2px;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
 	box-shadow: none;
 	font-size: 16px;
 `
