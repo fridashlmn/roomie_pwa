@@ -72,7 +72,3 @@ const IconAddProfile = styled.img`
 	background: transparent;
 	object-fit: cover;
 `
-
-/*
-Add name to inputs!
-*/

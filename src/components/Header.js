@@ -5,9 +5,15 @@ import { useLocation } from 'react-router-dom'
 export default function Header({ toggleNavOpen }) {
 	let height = '68px'
 	let pagename
+	let visibility = 'visible'
 	const { pathname } = useLocation()
 
 	switch (pathname) {
+		case '/login':
+			pagename = 'login'
+			height = '0'
+			visibility = 'hidden'
+			break
 		case '/':
 			height = '100vh'
 			pagename = 'dashboard'
@@ -38,7 +44,7 @@ export default function Header({ toggleNavOpen }) {
 	}
 
 	return (
-		<Appbar>
+		<Appbar visibility={visibility}>
 			<Toolbar propHeight={height}>
 				<MenuIcon
 					onClick={toggleNavOpen}
@@ -54,6 +60,7 @@ export default function Header({ toggleNavOpen }) {
 
 const Appbar = styled.div`
 	position: sticky;
+	visibility: ${props => props.visibility};
 	top: 0;
 	left: auto;
 	right: 0;

@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import ContractForm from './pages/Contracts/ContractsForm'
 import ContractsDefault from './pages/Contracts/ContractsDefault'
 import SocialWall from './pages/SocialWall/SocialWall'
+import LogIn from './pages/Login/LogIn'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -27,6 +28,9 @@ export default function App() {
 			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
 			<Switch>
+				<Route path="/login">
+					<LogIn />
+				</Route>
 				<Route exact path="/">
 					<Dashboard profile={selectedProfile} />
 				</Route>
