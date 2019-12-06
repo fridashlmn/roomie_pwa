@@ -10,7 +10,7 @@ export const Form = styled.form`
 	letter-spacing: 1.5px;
 `
 
-export const LogInForm = styled.form`
+export const AuthForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
