@@ -14,6 +14,11 @@ export default function Header({ toggleNavOpen }) {
 			height = '0'
 			visibility = 'hidden'
 			break
+		case '/signup':
+			pagename = 'signup'
+			height = '0'
+			visibility = 'hidden'
+			break
 		case '/':
 			height = '100vh'
 			pagename = 'dashboard'

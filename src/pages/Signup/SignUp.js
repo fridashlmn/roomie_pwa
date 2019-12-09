@@ -8,18 +8,19 @@ import { Link } from 'react-router-dom'
 import { AuthForm, Input } from '../../components/Forms'
 import { Button } from '../../components/Buttons'
 
-export default function LogIn() {
+export default function SignUp() {
 	const marginTop = '20px'
+
 	function handleSubmit(event) {
 		event.preventDefault()
 		const form = event.target
 		const formData = new FormData(form)
-		const userData = Object.fromEntries(formData)
+		const newUserData = Object.fromEntries(formData)
 		axios
-			.post('/login', userData)
+			.post('/signup', newUserData)
 			.then(res => {
 				localStorage.setItem('IdToken', `Bearer ${res.data.token}`)
-				window.location.href = `/`
+				window.location.href = `/login`
 			})
 			.catch(err => {
 				console.error(err)
@@ -43,12 +44,26 @@ export default function LogIn() {
 				type="password"
 				marginTop={marginTop}
 			/>
-			<Button type="submit">LOGIN</Button>
+			<Input
+				placeholder="confirm password"
+				id="confirmPassword"
+				name="confirmPassword"
+				type="password"
+				marginTop={marginTop}
+			/>
+			<Input
+				placeholder="user name"
+				id="handle"
+				name="handle"
+				type="text"
+				marginTop={marginTop}
+			/>
+			<Button type="submit">SIGN UP</Button>
 			<SignUpLink>
-				Don't have an account yet? Sign up{' '}
+				Already have an account? Log in{' '}
 				<Link
 					style={{ background: 'transparent', cursor: 'default' }}
-					to="/signup"
+					to="/login"
 				>
 					here
 				</Link>

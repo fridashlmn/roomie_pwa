@@ -21,6 +21,7 @@ import ContractForm from './pages/Contracts/ContractsForm'
 import ContractsDefault from './pages/Contracts/ContractsDefault'
 import SocialWall from './pages/SocialWall/SocialWall'
 import LogIn from './pages/Login/LogIn'
+import SignUp from './pages/Signup/SignUp'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
@@ -35,6 +36,9 @@ export default function App() {
 			<Switch>
 				<Route path="/login">
 					<LogIn />
+				</Route>
+				<Route path="/signup">
+					<SignUp />
 				</Route>
 				<Route exact path="/">
 					<Dashboard profile={selectedProfile} />
