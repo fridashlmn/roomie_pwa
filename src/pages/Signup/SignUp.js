@@ -74,8 +74,8 @@ export default function SignUp() {
 }
 
 const Logo = styled.img`
-	margin-bottom: 100px;
-	width: 150px;
+	margin-bottom: 50px;
+	width: 100px;
 	background: transparent;
 	color: #fdfdfd;
 `

@@ -1,6 +1,11 @@
 //IMPORT FUNCTIONALITY
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Redirect
+} from 'react-router-dom'
 
 //IMPORT COMPONENTS
 import Header from './components/Header'
@@ -28,8 +33,11 @@ export default function App() {
 	const [navIsOpen, setNavIsOpen] = useState(false)
 	const [selectedContract, setSelectedContract] = useState(contractsData[0])
 
+	const token = localStorage.IdToken
+
 	return (
 		<Router>
+			{token ? '' : <Redirect to="/login" />}
 			<ScrollToTop />
 			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
