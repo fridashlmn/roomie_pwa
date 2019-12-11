@@ -1,11 +1,12 @@
 //IMPORT FUNCTIONALITY
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 	Redirect
 } from 'react-router-dom'
+import axios from 'axios'
 
 //IMPORT COMPONENTS
 import Header from './components/Header'
@@ -30,14 +31,20 @@ import SignUp from './pages/Signup/SignUp'
 
 export default function App() {
 	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
+	useEffect(() => {
+		axios.get('/user').then(res => {
+			//console.log(res.data)
+			//setSelectedProfile(res.data)
+		})
+	}, [])
 	const [navIsOpen, setNavIsOpen] = useState(false)
 	const [selectedContract, setSelectedContract] = useState(contractsData[0])
 
-	const token = localStorage.IdToken
+	//const token = localStorage.IdToken
 
 	return (
 		<Router>
-			{token ? '' : <Redirect to="/login" />}
+			{/* {token ? '' : <Redirect to="/login" />} */}
 			<ScrollToTop />
 			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
