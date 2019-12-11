@@ -1,8 +1,10 @@
 # roomie
 
-## how to start app
+### a progressiv web app to help organise shared flats
 
-## link to app
+<img src="./src/images/screenshot.png">
+
+#### ... the app will be ready by january 2020
 
 ---
 
