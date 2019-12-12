@@ -204,6 +204,33 @@ exports.uploadImage = (req, res) => {
 	busboy.end(req.rawBody)
 }
 
+exports.getAllUsers = (req, res) => {
+	db.collection('users')
+		.get()
+		.then(data => {
+			let users = []
+			data.forEach(doc => {
+				users.push({
+					userId: doc.data().handle,
+					handle: doc.data().handle,
+					createdAt: doc.data().createdAt,
+					imageUrl: doc.data().imageUrl,
+					firstName: doc.data().firstName,
+					lastName: doc.data().lastName,
+					durationStart: doc.data().durationStart,
+					durationEnd: doc.data().durationEnd,
+					rent: doc.data().rent,
+					deposit: doc.data().deposit
+				})
+			})
+			return res.json(users)
+		})
+		.catch(err => {
+			console.error(err)
+			res.statu(500).json({ error: err.code })
+		})
+}
+
 // GET ANY USER DETAILS
 exports.getUserDetails = (req, res) => {
 	let userData = {}

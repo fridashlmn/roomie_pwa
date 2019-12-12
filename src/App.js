@@ -12,7 +12,6 @@ import axios from 'axios'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import ScrollToTop from './utils/ScrollToTop'
-import profileData from './json/profiles.json'
 import contractsData from './json/contracts.json'
 
 //IMPORT PAGES
@@ -30,21 +29,26 @@ import LogIn from './pages/Login/LogIn'
 import SignUp from './pages/Signup/SignUp'
 
 export default function App() {
-	const [selectedProfile, setSelectedProfile] = useState(profileData[0])
+	const [allProfiles, setAllProfiles] = useState([])
+	const token = localStorage.IdToken
+
 	useEffect(() => {
-		axios.get('/user').then(res => {
-			//console.log(res.data)
-			//setSelectedProfile(res.data)
-		})
+		axios
+			.get('/users')
+			.then(res => {
+				setAllProfiles(res.data)
+			})
+			.catch(err => {
+				console.error(err)
+			})
 	}, [])
+
 	const [navIsOpen, setNavIsOpen] = useState(false)
 	const [selectedContract, setSelectedContract] = useState(contractsData[0])
 
-	//const token = localStorage.IdToken
-
 	return (
 		<Router>
-			{/* {token ? '' : <Redirect to="/login" />} */}
+			{token ? '' : <Redirect to="/login" />}
 			<ScrollToTop />
 			<Navbar toggleNavOpen={toggleNavOpen} navIsOpen={navIsOpen} />
 			<Header toggleNavOpen={toggleNavOpen} />
@@ -56,22 +60,22 @@ export default function App() {
 					<SignUp />
 				</Route>
 				<Route exact path="/">
-					<Dashboard profile={selectedProfile} />
+					<Dashboard profile={allProfiles} />
 				</Route>
 				<Route path="/flatmates">
-					{profileData === {} ? (
+					{allProfiles === {} ? (
 						<ProfileDefault />
 					) : (
 						<ProfileTeaser
-							profileData={profileData}
+							profileData={allProfiles}
 							handleClickUserForDetails={index =>
 								handleClickUserForDetails(index)
 							}
 						/>
 					)}
 				</Route>
-				<Route path={`/${selectedProfile.firstName}`}>
-					<ProfileDetails profile={selectedProfile} />
+				<Route path={`/${allProfiles.firstName}`}>
+					<ProfileDetails profile={allProfiles} />
 				</Route>
 				<Route path="/newroomie">
 					<ProfileForm />
@@ -106,7 +110,7 @@ export default function App() {
 	}
 
 	function handleClickUserForDetails(index) {
-		setSelectedProfile(profileData[index])
+		setAllProfiles(allProfiles[index])
 	}
 
 	function handleClickContractForDetails(index) {

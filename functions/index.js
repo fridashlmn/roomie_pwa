@@ -20,7 +20,8 @@ const {
 	addUserDetails,
 	getAuthenticatedUser,
 	getUserDetails,
-	markNotificationsRead
+	markNotificationsRead,
+	getAllUsers
 } = require('./handlers/users')
 
 //POSTING ROUTES
@@ -41,6 +42,7 @@ app.get('/user', FBAuth, getAuthenticatedUser)
 //actually public route - do i need it?!
 app.get('/user/:handle', FBAuth, getUserDetails)
 app.post('/notifications', FBAuth, markNotificationsRead)
+app.get('/users', getAllUsers)
 
 //API FUNCTION
 exports.api = functions.region('europe-west1').https.onRequest(app)
