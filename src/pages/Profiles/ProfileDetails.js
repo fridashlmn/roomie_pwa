@@ -9,7 +9,7 @@ import { ContainerBoxShadow } from '../../components/Container'
 export default function ProfileDetails({ profile }) {
 	return (
 		<ContainerBoxShadow marginTop="50px" borderRadius="25px" padding="20px">
-			<Avatar src={require(`${profile.avatar}`)} alt="" />
+			{/* <Avatar src={require(`${profile.avatar}`)} alt="" /> */}
 			<Name>
 				{profile.firstName} {profile.lastName}
 			</Name>
@@ -22,10 +22,10 @@ export default function ProfileDetails({ profile }) {
 			<Content>{profile.rent}</Content>
 			<ContentTitle>deposit</ContentTitle>
 			<Content>{profile.deposit}</Content>
-			<BelongingsTitle>belongings</BelongingsTitle>
+			{/* <BelongingsTitle>belongings</BelongingsTitle>
 			{profile.belongings.map(item => (
 				<ProfileBelongings key={item} text={item} />
-			))}
+			))} */}
 		</ContainerBoxShadow>
 	)
 }
