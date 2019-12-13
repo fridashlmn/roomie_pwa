@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import axios from 'axios'
+import { Container } from '../../components/Container'
 import Posting from './Posting'
+import NewPost from './NewPost'
 
-export default function SocialWall() {
+export default function SocialWall({ loggedInUser }) {
 	const [posts, setPosts] = useState([])
+	const [isShown, setIsShown] = useState(false)
+
+	function toggleHideShow() {
+		setIsShown(!isShown)
+	}
+
 	useEffect(() => {
 		axios
 			.get('/posts')
@@ -16,15 +23,19 @@ export default function SocialWall() {
 			})
 	}, [])
 
-	let postingsAvailable = posts ? (
-		posts.map(post => <Posting post={post} />)
-	) : (
-		<p> Loading...</p>
-	)
-	return <SocialWallContainer>{postingsAvailable}</SocialWallContainer>
-}
+	let postingsAvailable =
+		posts && !isShown
+			? posts.map(post => <Posting post={post} loggedInUser={loggedInUser} />)
+			: ''
 
-const SocialWallContainer = styled.section`
-	height: 100vh;
-	margin-top: 15px;
-`
+	return (
+		<Container margin={'0px'} padding={'0px'} marginTop={'10px'}>
+			<NewPost
+				loggedInUser={loggedInUser}
+				isShown={isShown}
+				toggleHideShow={toggleHideShow}
+			/>
+			{postingsAvailable}
+		</Container>
+	)
+}

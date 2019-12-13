@@ -5,10 +5,10 @@ export const Container = styled.section`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 25px;
-	margin-top: 35px;
-	padding: 20px;
-	letter-spacing: 1.5px;
+	margin: ${props => props.margin || '25px'};
+	margin-top: ${props => props.marginTop || '35px'};
+	padding: ${props => props.padding || '20px'};
+	letter-spacing: 1.25px;
 `
 
 export const ContainerBoxShadow = styled.section`
