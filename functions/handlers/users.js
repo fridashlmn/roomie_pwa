@@ -211,7 +211,7 @@ exports.getAllUsers = (req, res) => {
 			let users = []
 			data.forEach(doc => {
 				users.push({
-					userId: doc.data().handle,
+					userId: doc.data().userId,
 					handle: doc.data().handle,
 					createdAt: doc.data().createdAt,
 					imageUrl: doc.data().imageUrl,

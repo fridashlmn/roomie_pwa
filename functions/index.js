@@ -26,12 +26,12 @@ const {
 
 //POSTING ROUTES
 app.get('/posts', getAllPosts)
-app.post('/post', FBAuth, postOnePost)
+app.post('/post', postOnePost)
 app.get('/post/:postId', FBAuth, getPost)
 app.post('/post/:postId/comment', FBAuth, commentOnPost)
-app.get('/post/:postId/like', FBAuth, likePost)
-app.get('/post/:postId/unlike', FBAuth, unlikePost)
-app.delete('/post/:postId', FBAuth, deletePost)
+app.get('/post/:postId/like', likePost)
+app.get('/post/:postId/unlike', unlikePost)
+app.delete('/post/:postId', deletePost)
 
 //USER ROUTES
 app.post('/signup', signup)
@@ -143,72 +143,35 @@ exports.onUserImageChange = functions
 	})
 
 // DELETE CORRESPONDING DATA TO DELETED POST
-exports.onPostDelete = functions
-	.region('europe-west1')
-	.firestore.document('/posts/{postId}')
-	.onDelete((snapshot, context) => {
-		const postId = context.params.postId
-		const batch = db.batch()
-		return db
-			.collection('comments')
-			.where('postId', '==', postId)
-			.get()
-			.then(data => {
-				data.forEach(doc => {
-					batch.delete(db.doc(`/comments/${doc.id}`))
-				})
-				return db.collection('likes').where('postId', '==', postId)
-			})
-			.then(data => {
-				data.forEach(doc => {
-					batch.delete(db.doc(`/likes/${doc.id}`))
-				})
-				return db.collection('notifications').where('postId', '==', postId)
-			})
-			.then(data => {
-				data.forEach(doc => {
-					batch.delete(db.doc(`/notifications/${doc.id}`))
-				})
-				return batch.commit()
-			})
-			.catch(err => {
-				console.error(err)
-			})
-	})
-
-exports.onPostDelete = functions
-	.region('europe-west1')
-	.firestore.document('/posts/{postId}')
-	.onDelete((snapshot, context) => {
-		const postId = context.params.postId
-		const batch = db.batch()
-		return db
-			.collection('comments')
-			.where('postId', '==', postId)
-			.get()
-			.then(data => {
-				data.forEach(doc => {
-					batch.delete(db.doc(`/comments/${doc.id}`))
-				})
-				return db
-					.collection('likes')
-					.where('postId', '==', postId)
-					.get()
-			})
-			.then(data => {
-				data.forEach(doc => {
-					batch.delete(db.doc(`/likes/${doc.id}`))
-				})
-				return db
-					.collection('notifications')
-					.where('postId', '==', postId)
-					.get()
-			})
-			.then(data => {
-				data.forEach(doc => {
-					batch.delete(db.doc(`/notifications/${doc.id}`))
-				})
-				return batch.commit()
-			})
-			.catch(err => console.error(err))
-	})
+// exports.onPostDelete = functions
+// 	.region('europe-west1')
+// 	.firestore.document('/posts/{postId}')
+// 	.onDelete((snapshot, context) => {
+// 		const postId = context.params.postId
+// 		const batch = db.batch()
+// 		return db
+// 			.collection('comments')
+// 			.where('postId', '==', postId)
+// 			.get()
+// 			.then(data => {
+// 				data.forEach(doc => {
+// 					batch.delete(db.doc(`/comments/${doc.id}`))
+// 				})
+// 				return db.collection('likes').where('postId', '==', postId)
+// 			})
+// 			.then(data => {
+// 				data.forEach(doc => {
+// 					batch.delete(db.doc(`/likes/${doc.id}`))
+// 				})
+// 				return db.collection('notifications').where('postId', '==', postId)
+// 			})
+// 			.then(data => {
+// 				data.forEach(doc => {
+// 					batch.delete(db.doc(`/notifications/${doc.id}`))
+// 				})
+// 				return batch.commit()
+// 			})
+// 			.catch(err => {
+// 				console.error(err)
+// 			})
+// 	})

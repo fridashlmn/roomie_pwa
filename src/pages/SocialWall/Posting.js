@@ -4,7 +4,10 @@ import styled from 'styled-components/macro'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
-export default function Posting({ post }) {
+import DeletePost from './DeletePost'
+import LikePost from './LikePost'
+
+export default function Posting({ post, loggedInUser }) {
 	dayjs.extend(relativeTime)
 	return (
 		<Grid>
@@ -12,41 +15,42 @@ export default function Posting({ post }) {
 			<LinkStyled to={`/${post.userHandle}`}>
 				<Name>{post.userHandle}</Name>
 			</LinkStyled>
+			<DeletePost postId={post.postId} />
 			<TimeStamp>{dayjs(post.createdAt).fromNow()}</TimeStamp>
 			<Body>{post.body}</Body>
+			<HorizontalLine />
 			<Likes>
 				{post.likeCount} <Heart>&hearts; </Heart>
 			</Likes>
 			<Comments>{post.commentCount} comments</Comments>
-			<HorizontalLine />
-			<LikeButton>LIKE</LikeButton>
-			<CommentButton>COMMENT</CommentButton>
+			<LikePost postId={post.postId} loggedInUser={loggedInUser} />
 		</Grid>
 	)
 }
 const Grid = styled.div`
 	display: grid;
 	padding: 15px;
+	margin: 10px;
 	margin-bottom: 20px;
 	border-radius: 2px;
 	box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2),
 		0px 2px 3px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 	grid-gap: 5px;
-	grid-template-columns: 50px 50px auto auto;
+	grid-template-columns: 0.5fr 0.5fr 1fr 2fr;
 	grid-template-rows: auto;
 	grid-template-areas:
+		'avatar . . deleteBtn'
 		'avatar name . timestamp'
 		'body body body body'
-		'likes comments comments .'
 		'hr hr hr hr'
-		'likeBtn likeBtn commentBtn commentBtn';
+		'likes comments comments likeBtn';
 `
 
 const HorizontalLine = styled.div`
 	grid-area: hr;
 	align-self: center;
 	background: #7bd5f5;
-	width: 200px;
+	width: 90vw;
 	border: 0;
 	height: 1px;
 `
@@ -63,6 +67,7 @@ const Avatar = styled.img`
 
 const Name = styled.div`
 	grid-area: name;
+	margin-top: 25px;
 `
 
 const LinkStyled = styled(Link)`
@@ -73,8 +78,10 @@ const LinkStyled = styled(Link)`
 `
 
 const TimeStamp = styled.div`
-	place-self: center;
+	justify-self: end;
+	align-self: center;
 	grid-area: timestamp;
+	font-size: 14px;
 `
 
 const Body = styled.div`
@@ -86,44 +93,20 @@ const Body = styled.div`
 `
 
 const Likes = styled.div`
+	align-self: center;
 	grid-area: likes;
 	padding: 5px;
 	font-size: 14px;
 `
 
 const Comments = styled.div`
+	align-self: center;
 	grid-area: comments;
 	padding: 5px;
 	font-size: 14px;
 `
 
 const Heart = styled.span`
+	align-self: center;
 	color: #787ff6;
-`
-
-const LikeButton = styled.button`
-	grid-area: likeBtn;
-	margin-top: 10px;
-	width: 75px;
-	padding: 5px;
-	background: #787ff6;
-	font-size: 14px;
-	color: #fbfbfb;
-	border-radius: 15px;
-	border: none;
-	box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.2),
-		0px 2px 3px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-`
-
-const CommentButton = styled.button`
-	grid-area: commentBtn;
-	margin-top: 10px;
-	width: 125px;
-	background: #787ff6;
-	font-size: 14px;
-	color: #fbfbfb;
-	border-radius: 15px;
-	border: none;
-	box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.2),
-		0px 2px 3px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 `

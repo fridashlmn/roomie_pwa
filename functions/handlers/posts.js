@@ -34,8 +34,8 @@ exports.postOnePost = (req, res) => {
 
 	const newPost = {
 		body: req.body.body,
-		userHandle: req.user.handle,
-		userImage: req.user.imageUrl,
+		userHandle: req.body.handle,
+		userImage: req.body.imageUrl,
 		createdAt: new Date().toISOString(),
 		likeCount: 0,
 		commentCount: 0
@@ -124,7 +124,7 @@ exports.commentOnPost = (req, res) => {
 exports.likePost = (req, res) => {
 	const likeDocument = db
 		.collection('likes')
-		.where('userHandle', '==', req.user.handle)
+		//.where('userHandle', '==', req.body.handle)
 		.where('postId', '==', req.params.postId)
 		.limit(1)
 
@@ -148,8 +148,8 @@ exports.likePost = (req, res) => {
 				return db
 					.collection('likes')
 					.add({
-						postId: req.params.postId,
-						userHandle: req.user.handle
+						postId: req.params.postId
+						//userHandle: req.user.handle
 					})
 					.then(() => {
 						postData.likeCount++
@@ -172,7 +172,7 @@ exports.likePost = (req, res) => {
 exports.unlikePost = (req, res) => {
 	const likeDocument = db
 		.collection('likes')
-		.where('userHandle', '==', req.user.handle)
+		//.where('userHandle', '==', req.user.handle)
 		.where('postId', '==', req.params.postId)
 		.limit(1)
 
@@ -221,9 +221,6 @@ exports.deletePost = (req, res) => {
 		.then(doc => {
 			if (!doc.exists) {
 				return res.status(404).json({ error: 'Post not found' })
-			}
-			if (doc.data().userHandle !== req.user.handle) {
-				return res.json(403).json({ error: 'Unauthorized' })
 			} else {
 				return document.delete()
 			}
@@ -233,6 +230,6 @@ exports.deletePost = (req, res) => {
 		})
 		.catch(err => {
 			console.error(err)
-			return res.status(500).json('FUDGE!!!!')
+			return res.status(500).json({ error: err.code })
 		})
 }

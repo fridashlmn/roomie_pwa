@@ -13,6 +13,7 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import ScrollToTop from './utils/ScrollToTop'
 import contractsData from './json/contracts.json'
+import loading from './json/loading.json'
 
 //IMPORT PAGES
 import ProfileDetails from './pages/Profiles/ProfileDetails'
@@ -30,7 +31,6 @@ import SignUp from './pages/Signup/SignUp'
 
 export default function App() {
 	const [allProfiles, setAllProfiles] = useState([])
-	const token = localStorage.IdToken
 
 	useEffect(() => {
 		axios
@@ -43,6 +43,8 @@ export default function App() {
 			})
 	}, [])
 
+	const loggedInUser = allProfiles[0] || loading[0]
+	const token = localStorage.IdToken
 	const [navIsOpen, setNavIsOpen] = useState(false)
 	const [selectedContract, setSelectedContract] = useState(contractsData[0])
 
@@ -60,7 +62,7 @@ export default function App() {
 					<SignUp />
 				</Route>
 				<Route exact path="/">
-					<Dashboard profile={allProfiles} />
+					<Dashboard profile={loggedInUser} />
 				</Route>
 				<Route path="/flatmates">
 					{allProfiles === {} ? (
@@ -81,7 +83,7 @@ export default function App() {
 					<ProfileForm />
 				</Route>
 				<Route path="/socialwall">
-					<SocialWall />
+					<SocialWall loggedInUser={loggedInUser} />
 				</Route>
 				<Route path="/contracts">
 					{contractsData === {} ? (
