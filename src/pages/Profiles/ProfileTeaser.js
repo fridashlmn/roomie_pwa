@@ -19,7 +19,7 @@ export default function ProfileTeaser({
 					onClick={() => handleClickUserForDetails(index)}
 				>
 					<TeaserContainer>
-						{/* <TeaserImage src={require(`${profile.avatar}`)} alt="" /> */}
+						<TeaserImage src={profile.imageUrl} alt="" />
 						<TeaserTitle>
 							{profile.firstName} {profile.lastName}
 						</TeaserTitle>

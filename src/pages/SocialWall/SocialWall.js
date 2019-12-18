@@ -6,10 +6,10 @@ import NewPost from './NewPost'
 
 export default function SocialWall({ loggedInUser }) {
 	const [posts, setPosts] = useState([])
-	const [isShown, setIsShown] = useState(false)
+	const [isFormShown, setIsFormShown] = useState(false)
 
-	function toggleHideShow() {
-		setIsShown(!isShown)
+	function toggleNewPostForm() {
+		setIsFormShown(!isFormShown)
 	}
 
 	useEffect(() => {
@@ -24,7 +24,7 @@ export default function SocialWall({ loggedInUser }) {
 	}, [])
 
 	let postingsAvailable =
-		posts && !isShown
+		posts && !isFormShown
 			? posts.map(post => <Posting post={post} loggedInUser={loggedInUser} />)
 			: ''
 
@@ -32,8 +32,8 @@ export default function SocialWall({ loggedInUser }) {
 		<Container margin={'0px'} padding={'0px'} marginTop={'10px'}>
 			<NewPost
 				loggedInUser={loggedInUser}
-				isShown={isShown}
-				toggleHideShow={toggleHideShow}
+				isFormShown={isFormShown}
+				toggleNewPostForm={toggleNewPostForm}
 			/>
 			{postingsAvailable}
 		</Container>
