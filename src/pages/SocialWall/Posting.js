@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import dayjs from 'dayjs'
@@ -6,27 +7,73 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 
 import DeletePost from './DeletePost'
 import LikePost from './LikePost'
+import Comments from './Comments'
+import loading from '../../json/loading.json'
 
 export default function Posting({ post, loggedInUser }) {
+	const [isCommentsShown, setIsCommentsShown] = useState(false)
+	const comment = []
+	const [getComments, setGetComments] = useState([])
+
+	useEffect(() => {
+		axios
+			.get(`/post/${post.postId}`)
+			.then(res => {
+				setGetComments(res.data)
+			})
+			.catch(err => {
+				console.error(err)
+			})
+	}, [])
+	console.log(getComments.comments)
+	function toggleComments() {
+		setIsCommentsShown(!isCommentsShown)
+	}
+	const showHideClassName = isCommentsShown ? 'open' : ''
 	dayjs.extend(relativeTime)
 	return (
-		<Grid>
-			<Avatar src={post.userImage} alt="" />
-			<LinkStyled to={`/${post.userHandle}`}>
-				<Name>{post.userHandle}</Name>
-			</LinkStyled>
-			<DeletePost postId={post.postId} />
-			<TimeStamp>{dayjs(post.createdAt).fromNow()}</TimeStamp>
-			<Body>{post.body}</Body>
-			<HorizontalLine />
-			<Likes>
-				{post.likeCount} <Heart>&hearts; </Heart>
-			</Likes>
-			<Comments>{post.commentCount} comments</Comments>
-			<LikePost postId={post.postId} loggedInUser={loggedInUser} />
-		</Grid>
+		<>
+			<Grid>
+				<Avatar src={post.userImage} alt="" />
+				<LinkStyled to={`/${post.userHandle}`}>
+					<Name>{post.userHandle}</Name>
+				</LinkStyled>
+				<DeletePost postId={post.postId} />
+				<TimeStamp>{dayjs(post.createdAt).fromNow()}</TimeStamp>
+				<Body>{post.body}</Body>
+				<HorizontalLine />
+				<Likes>
+					{post.likeCount} <Heart>&hearts; </Heart>
+				</Likes>
+				<CommentCount
+					onClick={toggleComments}
+					isCommentsShown={isCommentsShown}
+				>
+					{post.commentCount} comments
+				</CommentCount>
+				<LikePost postId={post.postId} loggedInUser={loggedInUser} />
+			</Grid>
+			<CommentContainer className={showHideClassName}>
+				{isCommentsShown &&
+					getComments.comments.map(() => (
+						<Comments
+							postId={post.postId}
+							loggedInUser={loggedInUser}
+							comment={getComments}
+						/>
+					))}
+			</CommentContainer>
+		</>
 	)
 }
+
+const CommentContainer = styled.div`
+	visibility: hidden;
+
+	&.open {
+		visibility: visible;
+	}
+`
 const Grid = styled.div`
 	display: grid;
 	padding: 15px;
@@ -99,7 +146,7 @@ const Likes = styled.div`
 	font-size: 14px;
 `
 
-const Comments = styled.div`
+const CommentCount = styled.div`
 	align-self: center;
 	grid-area: comments;
 	padding: 5px;

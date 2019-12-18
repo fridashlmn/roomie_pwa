@@ -5,8 +5,12 @@ import axios from 'axios'
 import { PostingForm, PostInput } from '../../components/Forms'
 import { PostButton } from '../../components/Buttons'
 
-export default function NewPost({ loggedInUser, isShown, toggleHideShow }) {
-	const showHideClassName = isShown ? 'open' : ''
+export default function NewPost({
+	loggedInUser,
+	isFormShown,
+	toggleNewPostForm
+}) {
+	const showHideClassName = isFormShown ? 'open' : ''
 
 	function handleSubmit(event) {
 		event.preventDefault()
@@ -18,7 +22,7 @@ export default function NewPost({ loggedInUser, isShown, toggleHideShow }) {
 		axios
 			.post('/post', postData)
 			.then(() => {
-				toggleHideShow()
+				toggleNewPostForm()
 			})
 			.catch(err => {
 				console.error(err)
@@ -28,7 +32,7 @@ export default function NewPost({ loggedInUser, isShown, toggleHideShow }) {
 	function renderForm(toggleHideShow) {
 		return (
 			<>
-				<CloseButton onClick={toggleHideShow}>&times;</CloseButton>
+				<CloseButton onClick={toggleNewPostForm}>&times;</CloseButton>
 				<PostingForm onSubmit={handleSubmit}>
 					<PostInput
 						placeholder="tell your roomies :)"
@@ -45,10 +49,10 @@ export default function NewPost({ loggedInUser, isShown, toggleHideShow }) {
 	}
 	return (
 		<>
-			<OpenButton className={showHideClassName} onClick={toggleHideShow}>
+			<OpenButton className={showHideClassName} onClick={toggleNewPostForm}>
 				+
 			</OpenButton>
-			{isShown && renderForm(toggleHideShow)}
+			{isFormShown && renderForm(toggleNewPostForm)}
 		</>
 	)
 }

@@ -27,8 +27,8 @@ const {
 //POSTING ROUTES
 app.get('/posts', getAllPosts)
 app.post('/post', postOnePost)
-app.get('/post/:postId', FBAuth, getPost)
-app.post('/post/:postId/comment', FBAuth, commentOnPost)
+app.get('/post/:postId', getPost)
+app.post('/post/:postId/comment', commentOnPost)
 app.get('/post/:postId/like', likePost)
 app.get('/post/:postId/unlike', unlikePost)
 app.delete('/post/:postId', deletePost)
