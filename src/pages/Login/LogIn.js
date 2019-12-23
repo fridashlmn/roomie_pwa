@@ -1,5 +1,6 @@
 //IMPORT FUNCTIONALITY
-import React from 'react'
+import React, { useState } from 'react'
+import ReactLoading from 'react-loading'
 import styled from 'styled-components'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -10,6 +11,9 @@ import { Button } from '../../components/Buttons'
 
 export default function LogIn() {
 	const marginTop = '20px'
+	const [errors, setErrors] = useState('')
+	const [loading, setLoading] = useState(false)
+
 	function handleSubmit(event) {
 		event.preventDefault()
 		const form = event.target
@@ -18,11 +22,12 @@ export default function LogIn() {
 		axios
 			.post('/login', userData)
 			.then(res => {
+				setLoading(true)
 				localStorage.setItem('IdToken', `Bearer ${res.data.token}`)
 				window.location.href = `/`
 			})
-			.catch(err => {
-				console.error(err)
+			.catch(() => {
+				setErrors('Wrong credentials, please try again')
 			})
 	}
 
@@ -43,7 +48,11 @@ export default function LogIn() {
 				type="password"
 				marginTop={marginTop}
 			/>
-			<Button type="submit">LOGIN</Button>
+			<ErrorMessage>{errors}</ErrorMessage>
+			<Button type="submit">
+				LOGIN
+				{/* {loading && } */}
+			</Button>
 			<SignUpLink>
 				Don't have an account yet? Sign up{' '}
 				<Link
@@ -68,4 +77,11 @@ const Logo = styled.img`
 const SignUpLink = styled.div`
 	font-size: 12px;
 	background: transparent;
+`
+
+const ErrorMessage = styled.span`
+	background: transparent;
+	color: #d8000c;
+	font-size: 12px;
+	padding-top: 5px;
 `

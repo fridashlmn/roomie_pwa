@@ -26,7 +26,6 @@ export default function SignUp() {
 				console.error(err)
 			})
 	}
-
 	return (
 		<AuthForm onSubmit={handleSubmit}>
 			<Logo src={require('../../images/Logo.svg')} alt="" />
