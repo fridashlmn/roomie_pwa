@@ -1,34 +1,80 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 export default function Navbar({ navIsOpen, toggleNavOpen }) {
 	const classes = navIsOpen ? ' nav__bar--open ' : ''
+	const { pathname } = useLocation()
+	let fontWeightD,
+		fontWeightF,
+		fontWeightS,
+		fontWeightC,
+		fontWeightI,
+		fontWeightE,
+		fontWeightCo,
+		fontWeightSe
+	switch (pathname) {
+		case '/':
+			fontWeightD = '700'
+			break
+		case '/flatmates':
+			fontWeightF = '700'
+			break
+		case '/socialwall':
+			fontWeightS = '700'
+			break
+		case '/calender':
+			fontWeightC = '700'
+			break
+		case '/inventory':
+			fontWeightI = '700'
+			break
+		case '/expenses':
+			fontWeightE = '700'
+			break
+		case '/contracts':
+			fontWeightCo = '700'
+			break
+		case '/settings':
+			fontWeightSe = '700'
+			break
+		default:
+			fontWeightD = ''
+	}
 	return (
 		<NavBar className={classes}>
-			<CloseIcon onClick={toggleNavOpen}>x</CloseIcon>
-			<NavItem className="nav__item" to="/" onClick={toggleNavOpen}>
+			<CloseIcon onClick={toggleNavOpen}>&times;</CloseIcon>
+			<NavItem fontWeight={fontWeightD} to="/" onClick={toggleNavOpen}>
 				DASHBOARD
 			</NavItem>
-			<NavItem className="nav__item" to="/flatmates" onClick={toggleNavOpen}>
+			<NavItem fontWeight={fontWeightF} to="/flatmates" onClick={toggleNavOpen}>
 				FLATMATES
 			</NavItem>
-			<NavItem className="nav__item" to="/socialwall" onClick={toggleNavOpen}>
+			<NavItem
+				fontWeight={fontWeightS}
+				to="/socialwall"
+				onClick={toggleNavOpen}
+			>
 				SOCIAL WALL
 			</NavItem>
-			<NavItem className="nav__item" to="/calender" onClick={toggleNavOpen}>
+			<NavItem fontWeight={fontWeightC} to="/calender" onClick={toggleNavOpen}>
 				CALENDER
 			</NavItem>
-			<NavItem className="nav__item" to="/inventory" onClick={toggleNavOpen}>
+			<NavItem fontWeight={fontWeightI} to="/inventory" onClick={toggleNavOpen}>
 				INVENTORY
 			</NavItem>
-			<NavItem className="nav__item" to="/expenses" onClick={toggleNavOpen}>
+			<NavItem fontWeight={fontWeightE} to="/expenses" onClick={toggleNavOpen}>
 				EXPENSES
 			</NavItem>
-			<NavItem className="nav__item" to="/contracts" onClick={toggleNavOpen}>
+			<NavItem
+				fontWeight={fontWeightCo}
+				to="/contracts"
+				onClick={toggleNavOpen}
+			>
 				CONTRACTS
 			</NavItem>
-			<NavItem className="nav__item" to="/settings" onClick={toggleNavOpen}>
+			<NavItem fontWeight={fontWeightSe} to="/settings" onClick={toggleNavOpen}>
 				SETTINGS
 			</NavItem>
 		</NavBar>
@@ -59,6 +105,10 @@ const CloseIcon = styled.div`
 	color: #fdfdfd;
 	font-size: 48px;
 	cursor: default;
+	transition-duration: 0.25s;
+	&:active {
+		font-size: 52px;
+	}
 `
 
 const NavItem = styled(Link)`
@@ -67,6 +117,7 @@ const NavItem = styled(Link)`
 	background: transparent;
 	font-size: 20px;
 	font-family: 'Roboto';
+	font-weight: ${props => props.fontWeight || '300'};
 	padding: 20px;
 	cursor: default;
 `

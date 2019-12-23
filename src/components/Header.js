@@ -107,4 +107,8 @@ const MenuIcon = styled.img`
 	background: transparent;
 	width: 30px;
 	cursor: default;
+	transition-duration: 0.25s;
+	&:active {
+		width: 32.5px;
+	}
 `

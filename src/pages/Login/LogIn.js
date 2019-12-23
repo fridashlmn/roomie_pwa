@@ -1,6 +1,5 @@
 //IMPORT FUNCTIONALITY
 import React, { useState } from 'react'
-import ReactLoading from 'react-loading'
 import styled from 'styled-components'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -12,7 +11,7 @@ import { Button } from '../../components/Buttons'
 export default function LogIn() {
 	const marginTop = '20px'
 	const [errors, setErrors] = useState('')
-	const [loading, setLoading] = useState(false)
+	const [collapsed, setCollapsed] = useState(false)
 
 	function handleSubmit(event) {
 		event.preventDefault()
@@ -22,7 +21,7 @@ export default function LogIn() {
 		axios
 			.post('/login', userData)
 			.then(res => {
-				setLoading(true)
+				setCollapsed(true)
 				localStorage.setItem('IdToken', `Bearer ${res.data.token}`)
 				window.location.href = `/`
 			})
@@ -31,39 +30,45 @@ export default function LogIn() {
 			})
 	}
 
+	function renderForm() {
+		return (
+			<>
+				<Input
+					placeholder="email"
+					id="email"
+					name="email"
+					type="email"
+					marginTop={marginTop}
+				/>
+				<Input
+					placeholder="password"
+					id="password"
+					name="password"
+					type="password"
+					marginTop={marginTop}
+				/>
+				<ErrorMessage>{errors}</ErrorMessage>
+				<Button type="submit">LOGIN</Button>
+				<SignUpLink>
+					Don't have an account yet? Sign up{' '}
+					<Link
+						style={{ background: 'transparent', cursor: 'default' }}
+						to="/signup"
+					>
+						here
+					</Link>
+					!
+				</SignUpLink>
+			</>
+		)
+	}
 	return (
-		<AuthForm onSubmit={handleSubmit}>
-			<Logo src={require('../../images/Logo.svg')} alt="" />
-			<Input
-				placeholder="email"
-				id="email"
-				name="email"
-				type="email"
-				marginTop={marginTop}
-			/>
-			<Input
-				placeholder="password"
-				id="password"
-				name="password"
-				type="password"
-				marginTop={marginTop}
-			/>
-			<ErrorMessage>{errors}</ErrorMessage>
-			<Button type="submit">
-				LOGIN
-				{/* {loading && } */}
-			</Button>
-			<SignUpLink>
-				Don't have an account yet? Sign up{' '}
-				<Link
-					style={{ background: 'transparent', cursor: 'default' }}
-					to="/signup"
-				>
-					here
-				</Link>
-				!
-			</SignUpLink>
-		</AuthForm>
+		<>
+			<AuthForm onSubmit={handleSubmit}>
+				<Logo src={require('../../images/Logo.svg')} alt="" />
+				{collapsed || renderForm()}
+			</AuthForm>
+		</>
 	)
 }
 
