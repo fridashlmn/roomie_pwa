@@ -5,9 +5,10 @@ export const Button = styled.button`
 	width: 250px;
 	padding: 10px;
 	margin: 30px;
+	margin-top: ${props => props.marginTop || ''};
 	background: #787ff6;
-	font-size: 26px;
-	font-weight: bold;
+	font-size: ${props => props.fontSize || '20px'};
+	font-weight: 500;
 	color: #fbfbfb;
 	border: none;
 	border-radius: 50px;

@@ -6,7 +6,7 @@ export const Container = styled.section`
 	justify-content: center;
 	align-items: center;
 	margin: ${props => props.margin || '25px'};
-	margin-top: ${props => props.marginTop || '35px'};
+	margin-top: ${props => props.marginTop || '20px'};
 	padding: ${props => props.padding || '20px'};
 	letter-spacing: 1.25px;
 `
