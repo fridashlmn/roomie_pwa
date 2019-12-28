@@ -11,7 +11,7 @@ export default function ContractsTeaser({
 	contractsData,
 	handleClickContractForDetails
 }) {
-	const backgroundColor = 'linear-gradient(to right, #787ff6, #4adede);'
+	const backgroundColor = '#1ca7ec'
 	return (
 		<Container>
 			{contractsData.map((contract, index) => (
@@ -26,7 +26,7 @@ export default function ContractsTeaser({
 				</LinkStyled>
 			))}
 			<Link to="/newcontract">
-				<Button>ADD A CONTRACT!</Button>
+				<Button>ADD A CONTRACT</Button>
 			</Link>
 		</Container>
 	)
@@ -45,6 +45,8 @@ const TeaserTitle = styled.div`
 	font-size: 28px;
 	font-weight: bold;
 	text-align: center;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+		0px 1px 4px rgba(0, 0, 0, 0.12);
 `
 
 const TeaserText = styled.div`

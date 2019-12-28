@@ -28,6 +28,7 @@ import ContractsDefault from './pages/Contracts/ContractsDefault'
 import SocialWall from './pages/SocialWall/SocialWall'
 import LogIn from './pages/Login/LogIn'
 import SignUp from './pages/Signup/SignUp'
+import Settings from './pages/Settings/Settings'
 
 export default function App() {
 	const [allProfiles, setAllProfiles] = useState([])
@@ -102,6 +103,9 @@ export default function App() {
 				</Route>
 				<Route path="/newcontract">
 					<ContractForm />
+				</Route>
+				<Route path="/settings">
+					<Settings />
 				</Route>
 			</Switch>
 		</Router>
