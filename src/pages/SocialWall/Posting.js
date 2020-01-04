@@ -25,7 +25,6 @@ export default function Posting({ post, loggedInUser }) {
 				console.error(err)
 			})
 	}, [])
-	console.log(getComments.comments)
 	function toggleComments() {
 		setIsCommentsShown(!isCommentsShown)
 	}

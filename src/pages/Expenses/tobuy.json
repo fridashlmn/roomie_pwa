@@ -1,0 +1,15 @@
+[
+	{
+		"title": "bathroom mirror",
+		"description": "there is need for a new bathroom mirror. I picked one from IKEA which I'm going to buy if you're OK with it.",
+		"price": "around 20€",
+		"link": "https://www.ikea.com/us/en/p/nissedal-mirror-black-50320320/",
+		"category": "furniture"
+	},
+	{
+		"title": "snacks for party",
+		"description": "we should get some snacks for the upcoming party. I guess for like 20 people or so?",
+		"price": "whatever it costs :)",
+		"category": "food"
+	}
+]
