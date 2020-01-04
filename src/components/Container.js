@@ -40,7 +40,7 @@ export const DashboardContainer = styled.section`
 export const TeaserContainer = styled.section`
 	width: ${props => props.width || '300px'};
 	margin-bottom: 25px;
-	z-index: 3;
+	margin: ${props => props.margin || '25px'};
 	background: ${props => props.background || '#fdfdfd'};
 	border-radius: 25px;
 	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),

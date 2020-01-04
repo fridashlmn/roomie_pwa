@@ -25,9 +25,9 @@ export const AuthForm = styled.form`
 export const PostingForm = styled.form`
 	display: flex;
 	flex-direction: column;
-	margin-top: 20px;
-	margin: 25px;
-	padding: 20px;
+	justify-content: center;
+	align-items: center;
+	margin-top: ${props => props.marginTop || '20px'};
 	letter-spacing: 1.5px;
 `
 
@@ -39,21 +39,26 @@ export const Label = styled.label`
 export const Input = styled.input`
 	padding: 15px;
 	margin-top: ${props => props.marginTop};
+	min-width: 300px;
+	background: #fdfdfd;
+	border-radius: 2px;
+	border: none;
+	font-size: 16px;
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+`
+
+export const PostInput = styled.input`
+	margin-top: ${props => props.marginTop};
+	padding: 15px;
+	resize: none;
+	min-height: ${props => props.minHeight || '150px'};
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+	min-width: 300px;
+	overflow: auto;
 	background: #fdfdfd;
 	border: none;
 	border-radius: 2px;
-	box-shadow: none;
-	font-size: 16px;
-`
-
-export const PostInput = styled.textarea`
-	padding: 15px;
-	resize: none;
-	min-height: 150px;
-	overflow: auto;
-	background: #fdfdfd;
-	border: 1px solid #222;
-	border-radius: 2px;
-	box-shadow: none;
 	font-size: 16px;
 `

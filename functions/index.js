@@ -24,6 +24,7 @@ const {
 	getAllUsers
 } = require('./handlers/users')
 
+const { getAllExpenses, postOneExpense } = require('./handlers/expenses')
 //POSTING ROUTES
 app.get('/posts', getAllPosts)
 app.post('/post', postOnePost)
@@ -43,6 +44,10 @@ app.get('/user', FBAuth, getAuthenticatedUser)
 app.get('/user/:handle', FBAuth, getUserDetails)
 app.post('/notifications', FBAuth, markNotificationsRead)
 app.get('/users', getAllUsers)
+
+//EXPENSES ROUTES
+app.get('/expenses', getAllExpenses)
+app.post('/post', postOneExpense)
 
 //API FUNCTION
 exports.api = functions.region('europe-west1').https.onRequest(app)
