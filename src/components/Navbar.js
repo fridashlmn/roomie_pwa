@@ -10,7 +10,7 @@ export default function Navbar({ navIsOpen, toggleNavOpen }) {
 		fontWeightF,
 		fontWeightS,
 		fontWeightC,
-		fontWeightI,
+		// fontWeightI,
 		fontWeightE,
 		fontWeightCo,
 		fontWeightSe
@@ -24,12 +24,12 @@ export default function Navbar({ navIsOpen, toggleNavOpen }) {
 		case '/socialwall':
 			fontWeightS = '700'
 			break
-		case '/calender':
+		case '/calendar':
 			fontWeightC = '700'
 			break
-		case '/inventory':
-			fontWeightI = '700'
-			break
+		// case '/inventory':
+		// 	fontWeightI = '700'
+		// 	break
 		case '/expenses':
 			fontWeightE = '700'
 			break
@@ -61,9 +61,9 @@ export default function Navbar({ navIsOpen, toggleNavOpen }) {
 			<NavItem fontWeight={fontWeightC} to="/calendar" onClick={toggleNavOpen}>
 				CALENDAR
 			</NavItem>
-			<NavItem fontWeight={fontWeightI} to="/inventory" onClick={toggleNavOpen}>
+			{/* <NavItem fontWeight={fontWeightI} to="/inventory" onClick={toggleNavOpen}>
 				INVENTORY
-			</NavItem>
+			</NavItem> */}
 			<NavItem fontWeight={fontWeightE} to="/expenses" onClick={toggleNavOpen}>
 				EXPENSES
 			</NavItem>

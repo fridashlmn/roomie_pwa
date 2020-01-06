@@ -1,32 +1,38 @@
+//IMPORT FUNCTIONALITY
 import React from 'react'
 import styled from 'styled-components/macro'
+
+//IMPORT COMPONENTS
 import { DashboardContainer } from '../../components/Container'
 
 export default function Dashboard({ profile }) {
 	return (
-		<>
-			<DashboardContainer>
-				<Greeting>
-					Hi {profile.firstName}, <br /> welcome back!
-				</Greeting>
-				<News margin={'-70px'}>
-					Here is a placeholder for upcoming stuff. Perhaps a{' '}
-					<u>notification</u> that someone posted in the chat.
-					<br />
-					<ALink href="/flatmates">Go there</ALink>
-				</News>
-				<News margin={'0px'} marginTop={'90px'}>
-					Here is another section for <u>persona-lised notifications</u>.
-					<br />
-					<ALink href="/flatmates">Go there</ALink>
-				</News>
-				<News margin={'20px'}>
-					...and maybe <u>another one</u>?
-					<br />
-					<ALink href="/flatmates">Go there</ALink>
-				</News>
-			</DashboardContainer>
-		</>
+		<DashboardContainer>
+			<Greeting>
+				Hi {profile.firstName}, <br /> welcome back!
+			</Greeting>
+			<News margin={'-70px'}>
+				There are new postings on the{' '}
+				<b>
+					<ALink href="/socialwall">social wall</ALink>
+				</b>
+				. Check it out!
+			</News>
+			<News margin={'0px'} marginTop={'90px'}>
+				John added a new event to the{' '}
+				<b>
+					<ALink href="/calendar">calendar</ALink>
+				</b>
+				. Let's see!
+			</News>
+			<News margin={'20px'}>
+				Next tuesday is your turn to clean the kitchen. Look at the{' '}
+				<b>
+					<ALink href="/calendar">cleaning plan</ALink>
+				</b>
+				!
+			</News>
+		</DashboardContainer>
 	)
 }
 
@@ -52,11 +58,5 @@ const News = styled.div`
 `
 
 const ALink = styled.a`
-	padding-left: 5px;
 	text-decoration: none;
-	font-weight: bold;
-	font-size: 12px;
-	background: -webkit-linear-gradient(#787ff6, #4adede);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 `

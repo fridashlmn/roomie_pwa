@@ -3,12 +3,12 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 //IMPORT COMPONENTS
-// import ProfileBelongings from './ProfileBelongings'
+import ProfilePossessions from './ProfilePossessions'
 import { ContainerBoxShadow } from '../../components/Container'
 
 export default function ProfileDetails({ profile }) {
 	return (
-		<ContainerBoxShadow marginTop="50px" borderRadius="25px" padding="20px">
+		<ContainerBoxShadow marginTop="20px" borderRadius="25px" padding="20px">
 			<Avatar src={profile.imageUrl} alt="" />
 			<Name>
 				{profile.firstName} {profile.lastName}
@@ -22,10 +22,10 @@ export default function ProfileDetails({ profile }) {
 			<Content>{profile.rent}</Content>
 			<ContentTitle>deposit</ContentTitle>
 			<Content>{profile.deposit}</Content>
-			{/* <BelongingsTitle>belongings</BelongingsTitle>
-			{profile.belongings.map(item => (
-				<ProfileBelongings key={item} text={item} />
-			))} */}
+			<ContentTitle>possessions</ContentTitle>
+			{profile.possessions.map(item => (
+				<ProfilePossessions key={item} text={item} />
+			))}
 		</ContainerBoxShadow>
 	)
 }
@@ -33,6 +33,7 @@ export default function ProfileDetails({ profile }) {
 const Avatar = styled.img`
 	align-self: center;
 	margin-top: 20px;
+	margin-bottom: 10px;
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;

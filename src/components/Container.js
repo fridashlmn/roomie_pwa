@@ -7,8 +7,8 @@ export const Container = styled.section`
 	align-items: center;
 	margin: ${props => props.margin || '25px'};
 	margin-top: ${props => props.marginTop || '20px'};
+	margin-bottom: ${props => props.marginBottom || '0px'};
 	padding: ${props => props.padding || '20px'};
-	letter-spacing: 1.25px;
 `
 
 export const ContainerBoxShadow = styled.section`

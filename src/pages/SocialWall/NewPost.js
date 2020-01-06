@@ -4,7 +4,11 @@ import axios from 'axios'
 
 //IMPORT COMPONENTS
 import { PostingForm, PostInput } from '../../components/Forms'
-import { PostButton, OpenButton, CloseButton } from '../../components/Buttons'
+import {
+	PostButton,
+	AddItemButton,
+	CloseButton
+} from '../../components/Buttons'
 
 export default function NewPost({
 	loggedInUser,
@@ -36,7 +40,7 @@ export default function NewPost({
 				<CloseButton onClick={toggleNewPostForm}>&times;</CloseButton>
 				<PostingForm onSubmit={handleSubmit}>
 					<PostInput
-						placeholder="tell your roomies :)"
+						placeholder="what's new? :)"
 						id="body"
 						name="body"
 						type="text"
@@ -50,9 +54,9 @@ export default function NewPost({
 	}
 	return (
 		<>
-			<OpenButton className={showHideClassName} onClick={toggleNewPostForm}>
+			<AddItemButton className={showHideClassName} onClick={toggleNewPostForm}>
 				&#43;
-			</OpenButton>
+			</AddItemButton>
 			{isFormShown && renderForm(toggleNewPostForm)}
 		</>
 	)
