@@ -13,7 +13,7 @@ export default function ContractsTeaser({
 }) {
 	const backgroundColor = '#1ca7ec'
 	return (
-		<Container>
+		<Container marginTop="0">
 			{contractsData.map((contract, index) => (
 				<LinkStyled
 					to={`/${contract.title}`}

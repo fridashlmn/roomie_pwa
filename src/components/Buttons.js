@@ -56,9 +56,8 @@ export const CloseButton = styled.div`
 	color: #fdfdfd;
 	background: #787ff6;
 	border-radius: 50%;
+	border: none;
 	padding: 5px 15px;
-	font-weight: thin;
-	letter-spacing: 1.25px;
 	cursor: default;
 	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
 		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -76,7 +75,7 @@ export const AddItemButton = styled.button`
 	bottom: 0;
 	left: 0;
 	width: 70px;
-	position: absolute;
+	position: fixed;
 	margin: 20px;
 	text-align: center;
 	font-size: 59px;

@@ -220,7 +220,8 @@ exports.getAllUsers = (req, res) => {
 					durationStart: doc.data().durationStart,
 					durationEnd: doc.data().durationEnd,
 					rent: doc.data().rent,
-					deposit: doc.data().deposit
+					deposit: doc.data().deposit,
+					possessions: doc.data().possessions
 				})
 			})
 			return res.json(users)

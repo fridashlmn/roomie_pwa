@@ -32,7 +32,12 @@ export default function SocialWall({ loggedInUser }) {
 			: ''
 
 	return (
-		<Container margin={'0px'} padding={'0px'} marginTop={'10px'}>
+		<Container
+			margin={'0px'}
+			padding={'0px'}
+			marginTop={'10px'}
+			marginBottom="80px"
+		>
 			<NewPost
 				loggedInUser={loggedInUser}
 				isFormShown={isFormShown}
