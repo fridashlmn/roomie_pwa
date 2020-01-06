@@ -51,28 +51,6 @@ export const OpenButton = styled.div`
 	}
 `
 
-export const OpenButtonBig = styled.button`
-	color: #fdfdfd;
-	background: #787ff6;
-	border-radius: 50%;
-	font-weight: thin;
-	cursor: default;
-	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-	border: none;
-	bottom: 0;
-	right: 0;
-	width: 70px;
-	position: absolute;
-	margin: 20px;
-	text-align: center;
-	font-size: 59px;
-	font-weight: 300;
-	&.open {
-		visibility: hidden;
-	}
-`
-
 export const CloseButton = styled.div`
 	font-size: 36px;
 	color: #fdfdfd;
@@ -84,4 +62,47 @@ export const CloseButton = styled.div`
 	cursor: default;
 	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
 		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+`
+
+export const AddItemButton = styled.button`
+	color: #fdfdfd;
+	background: #787ff6;
+	border-radius: 50%;
+	font-weight: thin;
+	cursor: default;
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	border: none;
+	bottom: 0;
+	left: 0;
+	width: 70px;
+	position: absolute;
+	margin: 20px;
+	text-align: center;
+	font-size: 59px;
+	font-weight: 300;
+	&.open {
+		visibility: hidden;
+	}
+`
+
+export const SwitchPagesButton = styled.button`
+	margin: 20px;
+	width: 70px;
+	height: 70px;
+	background: #787ff6;
+	border: none;
+	border-radius: 50%;
+	color: #fdfdfd;
+	font-size: 48px;
+	font-weight: 300;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	cursor: default;
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	&.open {
+		visibility: hidden;
+	}
 `

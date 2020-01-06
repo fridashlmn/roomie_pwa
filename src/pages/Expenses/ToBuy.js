@@ -11,7 +11,7 @@ export default function ToBuy({
 	isFormShown,
 	toggleNewPostForm
 }) {
-	const [toBuy, setBuy] = useState(tobuyData)
+	const [toBuy] = useState(tobuyData)
 
 	let expensesAvailable =
 		toBuy && !isFormShown

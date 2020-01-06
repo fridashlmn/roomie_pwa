@@ -1,5 +1,8 @@
+//IMPORT FUNCTIONALITY
 import React, { useState } from 'react'
 import styled from 'styled-components'
+
+//IMPORT COMPONENTS
 import { Container } from '../../components/Container'
 import { Button } from '../../components/Buttons'
 

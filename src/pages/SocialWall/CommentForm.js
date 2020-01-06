@@ -1,7 +1,8 @@
+//IMPORT FUNCTIONALITY
 import React from 'react'
-import styled from 'styled-components/macro'
 import axios from 'axios'
 
+//IMPORT COMPONENTS
 import { PostingForm, PostInput } from '../../components/Forms'
 import { PostButton } from '../../components/Buttons'
 

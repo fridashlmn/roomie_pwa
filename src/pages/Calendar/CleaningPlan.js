@@ -3,18 +3,16 @@ import styled from 'styled-components/macro'
 import { Container } from '../../components/Container'
 import { AddItemButton } from '../../components/Buttons'
 
-export default function Wallet({ profileData }) {
+export default function CleaningPlan({ loggedInUser }) {
 	return (
 		<Container>
-			{profileData.map((profile, index) => (
-				<Grid>
-					<Avatar src={profile.imageUrl} alt="" />
-					<Name>
-						{profile.firstName} {profile.lastName}
-					</Name>
-					<Money>20 €</Money>
-				</Grid>
-			))}
+			<Grid>
+				<Avatar src={loggedInUser.imageUrl} alt="" />
+				<Name>
+					{loggedInUser.firstName} {loggedInUser.lastName}
+				</Name>
+				<Money>20 €</Money>
+			</Grid>
 			<AddItemButton>&#36;</AddItemButton>
 		</Container>
 	)

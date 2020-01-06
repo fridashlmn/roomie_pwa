@@ -1,6 +1,5 @@
 //IMPORT FUNCTIONALITY
 import React from 'react'
-import styled from 'styled-components/macro'
 import axios from 'axios'
 
 //IMPORT COMPONENTS

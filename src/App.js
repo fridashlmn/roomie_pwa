@@ -16,20 +16,21 @@ import contractsData from './json/contracts.json'
 import loading from './json/loading.json'
 
 //IMPORT PAGES
-import ProfileDetails from './pages/Profiles/ProfileDetails'
-import ProfileTeaser from './pages/Profiles/ProfileTeaser'
-import ProfileDefault from './pages/Profiles/ProfileDefault'
-import ProfileForm from './pages/Profiles/ProfileForm'
-import ContractsTeaser from './pages/Contracts/ContractsTeaser'
-import ContractDetails from './pages/Contracts/ContractsDetails'
-import Dashboard from './pages/Dashboard/Dashboard'
-import ContractForm from './pages/Contracts/ContractsForm'
-import ContractsDefault from './pages/Contracts/ContractsDefault'
-import SocialWall from './pages/SocialWall/SocialWall'
 import LogIn from './pages/Login/LogIn'
 import SignUp from './pages/Signup/SignUp'
-import Settings from './pages/Settings/Settings'
+import Dashboard from './pages/Dashboard/Dashboard'
+import ProfileTeaser from './pages/Profiles/ProfileTeaser'
+import ProfileDefault from './pages/Profiles/ProfileDefault'
+import ProfileDetails from './pages/Profiles/ProfileDetails'
+import ProfileForm from './pages/Profiles/ProfileForm'
+import SocialWall from './pages/SocialWall/SocialWall'
+import Calendar from './pages/Calendar/Calendar'
 import Expenses from './pages/Expenses/Expenses'
+import ContractsDefault from './pages/Contracts/ContractsDefault'
+import ContractsTeaser from './pages/Contracts/ContractsTeaser'
+import ContractDetails from './pages/Contracts/ContractsDetails'
+import ContractForm from './pages/Contracts/ContractsForm'
+import Settings from './pages/Settings/Settings'
 
 export default function App() {
 	const [allProfiles, setAllProfiles] = useState([])
@@ -86,6 +87,9 @@ export default function App() {
 				</Route>
 				<Route path="/socialwall">
 					<SocialWall loggedInUser={loggedInUser} />
+				</Route>
+				<Route path="/calendar">
+					<Calendar loggedInUser={loggedInUser} />
 				</Route>
 				<Route path="/expenses">
 					<Expenses loggedInUser={loggedInUser} profileData={allProfiles} />

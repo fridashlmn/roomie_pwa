@@ -6,7 +6,7 @@ import axios from 'axios'
 //IMPORT COMPONENTS
 import {
 	PostButton,
-	OpenButtonBig,
+	AddItemButton,
 	CloseButton
 } from '../../components/Buttons'
 import { PostingForm, PostInput, Input } from '../../components/Forms'
@@ -85,9 +85,9 @@ export default function NewToBuy({
 	}
 	return (
 		<>
-			<OpenButtonBig className={showHideClassName} onClick={toggleNewPostForm}>
+			<AddItemButton className={showHideClassName} onClick={toggleNewPostForm}>
 				&#43;
-			</OpenButtonBig>
+			</AddItemButton>
 			{isFormShown && renderForm(toggleNewPostForm)}
 		</>
 	)

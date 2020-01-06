@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+//IMPORT FUNCTIONALITY
+import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import loading from '../../json/loading.json'
-
-import CommentForm from './CommentForm'
+// import loading from '../../json/loading.json'
+// import CommentForm from './CommentForm'
 
 export default function Comments({ comment, loggedInUser, postId }) {
 	dayjs.extend(relativeTime)
@@ -67,12 +67,12 @@ const Name = styled.div`
 	margin-top: 25px;
 `
 
-const LinkStyled = styled(Link)`
-	text-decoration: none;
-	place-self: center;
-	cursor: default;
-	color: #222;
-`
+// const LinkStyled = styled(Link)`
+// 	text-decoration: none;
+// 	place-self: center;
+// 	cursor: default;
+// 	color: #222;
+// `
 
 const TimeStamp = styled.div`
 	justify-self: end;
@@ -89,17 +89,13 @@ const Body = styled.div`
 	place-self: left;
 `
 
-const Likes = styled.div`
-	align-self: center;
-	grid-area: likes;
-	padding: 5px;
-	font-size: 14px;
-`
-const Heart = styled.span`
-	align-self: center;
-	color: #787ff6;
-`
-
-{
-	/* <CommentForm postId={postId} loggedInUser={loggedInUser} /> */
-}
+// const Likes = styled.div`
+// 	align-self: center;
+// 	grid-area: likes;
+// 	padding: 5px;
+// 	font-size: 14px;
+// `
+// const Heart = styled.span`
+// 	align-self: center;
+// 	color: #787ff6;
+// `
