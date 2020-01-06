@@ -1,3 +1,4 @@
+//IMPORT FUNCTIONALITY
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -5,14 +6,14 @@ import styled from 'styled-components/macro'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
+//IMPORT COMPONENTS
 import DeletePost from './DeletePost'
 import LikePost from './LikePost'
 import Comments from './Comments'
-import loading from '../../json/loading.json'
+// import loading from '../../json/loading.json'
 
 export default function Posting({ post, loggedInUser }) {
 	const [isCommentsShown, setIsCommentsShown] = useState(false)
-	const comment = []
 	const [getComments, setGetComments] = useState([])
 
 	useEffect(() => {
@@ -24,12 +25,16 @@ export default function Posting({ post, loggedInUser }) {
 			.catch(err => {
 				console.error(err)
 			})
-	}, [])
+	}, [post.postId])
+
 	function toggleComments() {
 		setIsCommentsShown(!isCommentsShown)
 	}
+
 	const showHideClassName = isCommentsShown ? 'open' : ''
+
 	dayjs.extend(relativeTime)
+
 	return (
 		<>
 			<Grid>

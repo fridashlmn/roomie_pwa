@@ -29,8 +29,8 @@ export default function Header({ toggleNavOpen }) {
 		case '/socialwall':
 			pagename = 'social wall'
 			break
-		case '/calender':
-			pagename = 'calender'
+		case '/calendar':
+			pagename = 'calendar'
 			break
 		case '/inventory':
 			pagename = 'inventory'

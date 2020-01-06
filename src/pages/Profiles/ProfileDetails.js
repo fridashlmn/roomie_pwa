@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 //IMPORT COMPONENTS
-import ProfileBelongings from './ProfileBelongings'
+// import ProfileBelongings from './ProfileBelongings'
 import { ContainerBoxShadow } from '../../components/Container'
 
 export default function ProfileDetails({ profile }) {
@@ -61,13 +61,13 @@ const Content = styled.p`
 	font-weight: 100;
 `
 
-const BelongingsTitle = styled.p`
-	padding-top: 20px;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	font-weight: bold;
-	text-align: left;
-`
+// const BelongingsTitle = styled.p`
+// 	padding-top: 20px;
+// 	padding-left: 10px;
+// 	padding-bottom: 10px;
+// 	font-weight: bold;
+// 	text-align: left;
+// `
 
 const HorizontalLine = styled.div`
 	align-self: center;

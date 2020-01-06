@@ -58,8 +58,8 @@ export default function Navbar({ navIsOpen, toggleNavOpen }) {
 			>
 				SOCIAL WALL
 			</NavItem>
-			<NavItem fontWeight={fontWeightC} to="/calender" onClick={toggleNavOpen}>
-				CALENDER
+			<NavItem fontWeight={fontWeightC} to="/calendar" onClick={toggleNavOpen}>
+				CALENDAR
 			</NavItem>
 			<NavItem fontWeight={fontWeightI} to="/inventory" onClick={toggleNavOpen}>
 				INVENTORY

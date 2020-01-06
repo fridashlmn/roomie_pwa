@@ -1,5 +1,8 @@
+//IMPORT FUNCTIONALITY
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+
+//IMPORT COMPONENTS
 import { Container } from '../../components/Container'
 import Posting from './Posting'
 import NewPost from './NewPost'
