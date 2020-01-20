@@ -95,7 +95,7 @@ export const SwitchPagesButton = styled.button`
 	color: #fdfdfd;
 	font-size: 48px;
 	font-weight: 300;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
 	cursor: default;

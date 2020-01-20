@@ -12,7 +12,7 @@ export default function Wallet({ profileData }) {
 					<Name>
 						{profile.firstName} {profile.lastName}
 					</Name>
-					<Money>20 €</Money>
+					<Money>{profile.wallet}</Money>
 				</Grid>
 			))}
 			<AddItemButton>&#36;</AddItemButton>

@@ -21,7 +21,7 @@ import { AddItemButton, SwitchPagesButton } from '../../components/Buttons'
 import { Input } from '../../components/Forms'
 import CleaningPlan from './CleaningPlan'
 
-export default function Calendar({ loggedInUser }) {
+export default function Calendar({ allProfiles }) {
 	const [currentMonth, setCurrentMonth] = useState(new Date())
 	const [selectedDate, setSelectedDate] = useState(new Date())
 	const [isCalendarShown, setIsCalendarShown] = useState(true)
@@ -125,11 +125,14 @@ export default function Calendar({ loggedInUser }) {
 			customUI: ({ onClose }) => {
 				return (
 					<section className="custom-ui" style={{ margin: '30px' }}>
-						<h1>Hi {loggedInUser.firstName}!</h1>
+						<h1>Hi {allProfiles[0].firstName}!</h1>
 						<Message>What do you want to add to the calendar?</Message>
 						<Input marginTop="10px" placeholder="add a title" />
 						<Input marginTop="10px" placeholder="add a description" />
-						<Input marginTop="10px" placeholder="endDate" />
+						<Input marginTop="10px" placeholder="start" />
+						<Input marginTop="10px" placeholder="end" />
+						<Input marginTop="10px" placeholder="category" />
+						<Input marginTop="10px" placeholder="optional: assignment" />
 						<HorizontalLine />
 						<Buttons onClick={onClose}>Cancel</Buttons>
 						<Buttons
@@ -154,7 +157,7 @@ export default function Calendar({ loggedInUser }) {
 					{renderCells()}
 				</div>
 			) : (
-				<CleaningPlan loggedInUser={loggedInUser} />
+				<CleaningPlan allProfiles={allProfiles} />
 			)}
 
 			<SwitchPagesButton onClick={() => toggleCalendar()}>
