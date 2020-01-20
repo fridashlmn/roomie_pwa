@@ -89,7 +89,7 @@ export default function App() {
 					<SocialWall loggedInUser={loggedInUser} />
 				</Route>
 				<Route path="/calendar">
-					<Calendar loggedInUser={loggedInUser} />
+					<Calendar allProfiles={allProfiles} />
 				</Route>
 				<Route path="/expenses">
 					<Expenses loggedInUser={loggedInUser} profileData={allProfiles} />
